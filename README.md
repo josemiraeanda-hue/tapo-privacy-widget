@@ -1,0 +1,1 @@
+# tapo-privacy-widget
