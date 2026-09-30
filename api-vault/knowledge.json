@@ -1,0 +1,928 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-09-30",
+  "scope": "JM Beloura automotive knowledge",
+  "rules": [
+    "No secret values in knowledge.",
+    "Prefer official/primary sources.",
+    "Candidates require verification before production.",
+    "Consult this base before external research for relevant JM automotive/workshop questions."
+  ],
+  "entries": [
+    {
+      "id": "project-jm-api-vault",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "JM API Vault",
+      "tags": [
+        "vault",
+        "gateway",
+        "render",
+        "architecture"
+      ],
+      "summary": "Central protected gateway for JM Beloura automotive APIs.",
+      "url": "https://jm-api-vault.onrender.com"
+    },
+    {
+      "id": "render-service",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "Render service jm-api-vault",
+      "tags": [
+        "render",
+        "deployment"
+      ],
+      "summary": "Frankfurt, Free plan, auto deploy from main.",
+      "url": "https://dashboard.render.com/web/srv-dau4vamk1f9s73acgna0"
+    },
+    {
+      "id": "github-repo",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "JM API Vault GitHub",
+      "tags": [
+        "github",
+        "source"
+      ],
+      "summary": "Repository containing api-vault.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget"
+    },
+    {
+      "id": "auto-dev-vin",
+      "category": "vehicle-identification",
+      "status": "confirmed",
+      "title": "Auto.dev VIN Decode",
+      "tags": [
+        "auto.dev",
+        "vin",
+        "vehicle",
+        "decode"
+      ],
+      "summary": "Gateway route /auto/vin/:vin; API key stays server-side.",
+      "url": "https://docs.auto.dev/v2/products/vin-decode"
+    },
+    {
+      "id": "officegest-api",
+      "category": "workshop-software",
+      "status": "confirmed",
+      "title": "OfficeGest API v2",
+      "tags": [
+        "officegest",
+        "api",
+        "workshop",
+        "billing"
+      ],
+      "summary": "Target integration for customers, documents and workshop workflow.",
+      "url": "https://api.officegest.com/docs/officegest-api/v2"
+    },
+    {
+      "id": "telepecas-api",
+      "category": "parts",
+      "status": "confirmed",
+      "title": "TelePeças API",
+      "tags": [
+        "parts",
+        "portugal",
+        "api"
+      ],
+      "summary": "Official API reference identified for parts/vehicle integration.",
+      "url": "https://www.telepecas.com/api/"
+    },
+    {
+      "id": "autodata-developer",
+      "category": "technical-data",
+      "status": "confirmed",
+      "title": "Autodata Developer",
+      "tags": [
+        "autodata",
+        "technical",
+        "maintenance",
+        "repair"
+      ],
+      "summary": "Commercial technical-data integration source.",
+      "url": "https://developer.autodata-group.com/docs"
+    },
+    {
+      "id": "matricula-co-pt",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "Matricula.co.pt",
+      "tags": [
+        "matricula",
+        "plate",
+        "portugal",
+        "vin"
+      ],
+      "summary": "Portuguese plate-to-vehicle candidate; coverage/terms need revalidation."
+    },
+    {
+      "id": "open-labor-project",
+      "category": "technical-data",
+      "status": "candidate",
+      "title": "Open Labor Project",
+      "tags": [
+        "labor",
+        "maintenance",
+        "dtc",
+        "fluids",
+        "torque",
+        "vin"
+      ],
+      "summary": "Candidate labor/maintenance/technical data source; revalidate current API and PT coverage."
+    },
+    {
+      "id": "carapi-dev",
+      "category": "vehicle-identification",
+      "status": "limited",
+      "title": "CarAPI.dev",
+      "tags": [
+        "plate",
+        "vin",
+        "vehicle",
+        "portugal"
+      ],
+      "summary": "Previously checked plate-to-VIN coverage did not include Portugal; revalidate before use."
+    },
+    {
+      "id": "vehdb",
+      "category": "vehicle-data",
+      "status": "candidate",
+      "title": "VEHDB",
+      "tags": [
+        "vehicle",
+        "motorcycle",
+        "specs",
+        "recalls",
+        "fitment",
+        "vin"
+      ],
+      "summary": "Candidate vehicle database/API."
+    },
+    {
+      "id": "tecalliance-tecdoc",
+      "category": "parts",
+      "status": "commercial",
+      "title": "TecAlliance / TecDoc",
+      "tags": [
+        "tecdoc",
+        "parts",
+        "oe",
+        "cross-reference",
+        "vehicle"
+      ],
+      "summary": "Primary commercial ecosystem for vehicle identification and parts data."
+    },
+    {
+      "id": "tecdoc-web-service",
+      "category": "parts",
+      "status": "candidate",
+      "title": "TecDoc Web Service",
+      "tags": [
+        "tecdoc",
+        "webservice",
+        "parts"
+      ],
+      "summary": "Commercial integration route; exact current package/endpoints require TecAlliance confirmation."
+    },
+    {
+      "id": "tecdoc-vehicle-identification",
+      "category": "parts",
+      "status": "candidate",
+      "title": "TecDoc Vehicle Identification Service",
+      "tags": [
+        "tecdoc",
+        "vehicle",
+        "vin"
+      ],
+      "summary": "Vehicle identification component to evaluate."
+    },
+    {
+      "id": "tecdoc-oe-parts",
+      "category": "parts",
+      "status": "candidate",
+      "title": "TecDoc OE Parts Data",
+      "tags": [
+        "tecdoc",
+        "oe",
+        "parts"
+      ],
+      "summary": "OE/reference mapping source to evaluate."
+    },
+    {
+      "id": "tecdoc-vio",
+      "category": "parts",
+      "status": "candidate",
+      "title": "TecDoc VIO Data",
+      "tags": [
+        "tecdoc",
+        "vio",
+        "vehicle"
+      ],
+      "summary": "Vehicle-in-operation data product to evaluate."
+    },
+    {
+      "id": "tecdoc-teccom",
+      "category": "supplier-integration",
+      "status": "candidate",
+      "title": "TecCom",
+      "tags": [
+        "teccom",
+        "orders",
+        "stock",
+        "price",
+        "supplier",
+        "edi"
+      ],
+      "summary": "Potential supplier price/availability/order integration."
+    },
+    {
+      "id": "haynespro-workshopdata",
+      "category": "technical-data",
+      "status": "commercial",
+      "title": "HaynesPro WorkshopData",
+      "tags": [
+        "haynespro",
+        "workshopdata",
+        "maintenance",
+        "repair",
+        "vin",
+        "tecdoc"
+      ],
+      "summary": "Commercial workshop technical-data source."
+    },
+    {
+      "id": "bosch-aftermarket",
+      "category": "manufacturer",
+      "status": "candidate",
+      "title": "Bosch Aftermarket",
+      "tags": [
+        "bosch",
+        "parts",
+        "diagnostics",
+        "technical"
+      ],
+      "summary": "Manufacturer catalogue/technical integration candidate."
+    },
+    {
+      "id": "zf-aftermarket",
+      "category": "manufacturer",
+      "status": "candidate",
+      "title": "ZF Aftermarket / SDM365",
+      "tags": [
+        "zf",
+        "parts",
+        "technical"
+      ],
+      "summary": "Manufacturer catalogue/technical source candidate."
+    },
+    {
+      "id": "schaeffler",
+      "category": "manufacturer",
+      "status": "candidate",
+      "title": "Schaeffler / LuK INA FAG",
+      "tags": [
+        "schaeffler",
+        "luk",
+        "ina",
+        "fag",
+        "parts"
+      ],
+      "summary": "Manufacturer catalogue and technical-data candidate."
+    },
+    {
+      "id": "michelin-developer",
+      "category": "tyres",
+      "status": "candidate",
+      "title": "Michelin Developer APIs",
+      "tags": [
+        "michelin",
+        "tyres",
+        "ratings",
+        "vehicle"
+      ],
+      "summary": "Tyre/vehicle/ratings API candidate; verify current availability."
+    },
+    {
+      "id": "tire-wheel-fitment",
+      "category": "tyres",
+      "status": "candidate",
+      "title": "Tire & Wheel Fitment / VDIM",
+      "tags": [
+        "tyres",
+        "wheels",
+        "fitment",
+        "oem",
+        "torque"
+      ],
+      "summary": "Candidate OEM/alternative size and fitment source."
+    },
+    {
+      "id": "nhtsa",
+      "category": "recalls",
+      "status": "limited",
+      "title": "NHTSA APIs",
+      "tags": [
+        "recalls",
+        "complaints",
+        "investigations",
+        "vin"
+      ],
+      "summary": "Useful official US source; not Portugal-specific."
+    },
+    {
+      "id": "asf-tem-seguro",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "ASF / Tem Seguro",
+      "tags": [
+        "insurance",
+        "portugal",
+        "matricula"
+      ],
+      "summary": "Portuguese insurance lookup route; access method needs verification."
+    },
+    {
+      "id": "imt-ipo",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "IMT / IPO",
+      "tags": [
+        "inspection",
+        "ipo",
+        "portugal",
+        "matricula"
+      ],
+      "summary": "Portuguese inspection source; access constraints may apply."
+    },
+    {
+      "id": "irn-registo-automovel",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "IRN / Registo Automóvel",
+      "tags": [
+        "ownership",
+        "liens",
+        "portugal",
+        "vehicle"
+      ],
+      "summary": "Official registration/encumbrance domain; no unrestricted plate API assumed."
+    },
+    {
+      "id": "at-iuc",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "AT / IUC",
+      "tags": [
+        "iuc",
+        "tax",
+        "portugal",
+        "matricula"
+      ],
+      "summary": "Portuguese tax/IUC source; no public plate API assumed."
+    },
+    {
+      "id": "ense-fuel",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "ENSE fuel prices",
+      "tags": [
+        "fuel",
+        "portugal",
+        "prices"
+      ],
+      "summary": "Portuguese fuel-price data candidate."
+    },
+    {
+      "id": "ipma-api",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "IPMA API",
+      "tags": [
+        "weather",
+        "portugal",
+        "api"
+      ],
+      "summary": "Official Portuguese weather API candidate."
+    },
+    {
+      "id": "carvertical",
+      "category": "vehicle-history",
+      "status": "candidate",
+      "title": "carVertical",
+      "tags": [
+        "history",
+        "damage",
+        "mileage",
+        "vehicle"
+      ],
+      "summary": "Commercial European vehicle-history candidate."
+    },
+    {
+      "id": "autodna",
+      "category": "vehicle-history",
+      "status": "candidate",
+      "title": "autoDNA",
+      "tags": [
+        "history",
+        "vehicle",
+        "vin"
+      ],
+      "summary": "Commercial vehicle-history candidate."
+    },
+    {
+      "id": "carfax-europe",
+      "category": "vehicle-history",
+      "status": "candidate",
+      "title": "CARFAX Europe",
+      "tags": [
+        "history",
+        "vehicle",
+        "vin"
+      ],
+      "summary": "Commercial European vehicle-history candidate."
+    },
+    {
+      "id": "vinwhere",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "VINWhere",
+      "tags": [
+        "vin",
+        "vehicle"
+      ],
+      "summary": "VIN vehicle-data candidate."
+    },
+    {
+      "id": "db-vin",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "DB.VIN",
+      "tags": [
+        "vin",
+        "vehicle"
+      ],
+      "summary": "VIN vehicle-data candidate."
+    },
+    {
+      "id": "mcp-vin",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "MCP.VIN",
+      "tags": [
+        "vin",
+        "mcp",
+        "vehicle"
+      ],
+      "summary": "VIN/MCP candidate."
+    },
+    {
+      "id": "ipnova-vindecoder",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "VINDecoderCheck / IPNOVA",
+      "tags": [
+        "vin",
+        "decoder"
+      ],
+      "summary": "VIN decoding candidate; limits require verification."
+    },
+    {
+      "id": "vehicode",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "Vehicode",
+      "tags": [
+        "vin",
+        "europe",
+        "vehicle"
+      ],
+      "summary": "European VIN identification candidate."
+    },
+    {
+      "id": "vehicle-finder",
+      "category": "vehicle-data",
+      "status": "candidate",
+      "title": "Vehicle Finder",
+      "tags": [
+        "vin",
+        "maintenance",
+        "recalls",
+        "vehicle"
+      ],
+      "summary": "Candidate VIN/maintenance/recall source."
+    },
+    {
+      "id": "transparentcars",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "TransparentCars Portugal",
+      "tags": [
+        "portugal",
+        "market",
+        "iuc",
+        "json",
+        "mcp"
+      ],
+      "summary": "Portuguese market/catalogue candidate; verify current public access."
+    },
+    {
+      "id": "simplecheck",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "SimpleCheck",
+      "tags": [
+        "matricula",
+        "portugal",
+        "plate"
+      ],
+      "summary": "Portuguese plate validation/data candidate; verify current docs/terms."
+    },
+    {
+      "id": "fapi-catalog",
+      "category": "parts",
+      "status": "candidate",
+      "title": "FAPI Catalog",
+      "tags": [
+        "parts",
+        "oe",
+        "cross-reference",
+        "vehicle",
+        "vin"
+      ],
+      "summary": "Parts/OE/cross-reference candidate."
+    },
+    {
+      "id": "vehiclesdb",
+      "category": "vehicle-data",
+      "status": "candidate",
+      "title": "VehiclesDB",
+      "tags": [
+        "vehicle",
+        "motorcycle",
+        "models",
+        "specs"
+      ],
+      "summary": "Open/free vehicle catalogue candidate."
+    },
+    {
+      "id": "appbyte-vehicle-catalog",
+      "category": "vehicle-data",
+      "status": "candidate",
+      "title": "AppByte Vehicle Catalog",
+      "tags": [
+        "vehicle",
+        "models",
+        "versions",
+        "specs"
+      ],
+      "summary": "Make/model/version/spec candidate."
+    },
+    {
+      "id": "parts-resolve",
+      "category": "parts",
+      "status": "candidate",
+      "title": "Parts Resolve",
+      "tags": [
+        "parts",
+        "oe",
+        "aftermarket"
+      ],
+      "summary": "Parts resolution candidate."
+    },
+    {
+      "id": "carscan",
+      "category": "technical-data",
+      "status": "candidate",
+      "title": "CarScan API",
+      "tags": [
+        "maintenance",
+        "dtc",
+        "vin",
+        "recalls",
+        "tsb"
+      ],
+      "summary": "Candidate maintenance/DTC/TSB/recall API."
+    },
+    {
+      "id": "revcardata",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "RevCarData",
+      "tags": [
+        "vin",
+        "europe",
+        "engine",
+        "recalls"
+      ],
+      "summary": "European VIN/engine/version/recall candidate."
+    },
+    {
+      "id": "vinapi-io",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "VINAPI.io",
+      "tags": [
+        "vin",
+        "plate",
+        "ocr"
+      ],
+      "summary": "VIN, plate recognition and OCR candidate."
+    },
+    {
+      "id": "oneautoapi",
+      "category": "vehicle-data",
+      "status": "candidate",
+      "title": "OneAutoAPI",
+      "tags": [
+        "vin",
+        "plate",
+        "history",
+        "recalls",
+        "valuation"
+      ],
+      "summary": "Candidate VIN, plate-to-VIN, history, recalls, mileage and valuation source."
+    },
+    {
+      "id": "licenseplatedata",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "LicensePlateData",
+      "tags": [
+        "plate",
+        "vin",
+        "images"
+      ],
+      "summary": "Plate/VIN/image candidate."
+    },
+    {
+      "id": "mrvin",
+      "category": "vehicle-history",
+      "status": "candidate",
+      "title": "MRVIN",
+      "tags": [
+        "vin",
+        "history",
+        "mileage",
+        "damage",
+        "europe"
+      ],
+      "summary": "European VIN/history candidate."
+    },
+    {
+      "id": "getcarapi",
+      "category": "vehicle-history",
+      "status": "candidate",
+      "title": "GetCarAPI",
+      "tags": [
+        "vin",
+        "history",
+        "listings",
+        "prices"
+      ],
+      "summary": "Vehicle history/listings/pricing candidate."
+    },
+    {
+      "id": "autowiz",
+      "category": "parts",
+      "status": "candidate",
+      "title": "AutoWiz",
+      "tags": [
+        "oem",
+        "cross-reference",
+        "parts"
+      ],
+      "summary": "OEM/cross-reference candidate."
+    },
+    {
+      "id": "wheels-easy",
+      "category": "tyres",
+      "status": "candidate",
+      "title": "Wheels Easy",
+      "tags": [
+        "wheels",
+        "fitment",
+        "tyres",
+        "mcp"
+      ],
+      "summary": "Wheel/fitment candidate."
+    },
+    {
+      "id": "tyresaddict",
+      "category": "tyres",
+      "status": "candidate",
+      "title": "TyresAddict",
+      "tags": [
+        "tyres",
+        "wheels",
+        "fitment"
+      ],
+      "summary": "Tyre/wheel fitment candidate."
+    },
+    {
+      "id": "plate-to-vin",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "PlateToVIN",
+      "tags": [
+        "plate",
+        "vin",
+        "images"
+      ],
+      "summary": "Plate/VIN imagery candidate."
+    },
+    {
+      "id": "tecor-license",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "Tecor/Tecro License",
+      "tags": [
+        "vin",
+        "plate",
+        "europe",
+        "parts"
+      ],
+      "summary": "European VIN/plate candidate."
+    },
+    {
+      "id": "carapi-app",
+      "category": "vehicle-data",
+      "status": "candidate",
+      "title": "CarAPI.app",
+      "tags": [
+        "vin",
+        "plate",
+        "obd",
+        "motorcycle"
+      ],
+      "summary": "VIN/plate/OBD/powersports candidate."
+    },
+    {
+      "id": "tec3",
+      "category": "parts",
+      "status": "candidate",
+      "title": "Tec3",
+      "tags": [
+        "tecdoc",
+        "tecrmi",
+        "vin",
+        "rest",
+        "stock",
+        "price"
+      ],
+      "summary": "Candidate integration layer around TecDoc/TecRMI/VIN/stock/price."
+    },
+    {
+      "id": "ymmfit",
+      "category": "fitment",
+      "status": "candidate",
+      "title": "YMMFit",
+      "tags": [
+        "fitment",
+        "accessories",
+        "12v"
+      ],
+      "summary": "Accessory fitment candidate."
+    },
+    {
+      "id": "car-audio-fitment",
+      "category": "fitment",
+      "status": "candidate",
+      "title": "Car Audio Fitment API",
+      "tags": [
+        "audio",
+        "fitment",
+        "vehicle"
+      ],
+      "summary": "Vehicle/audio fitment candidate."
+    },
+    {
+      "id": "open-api-portugal",
+      "category": "portugal",
+      "status": "candidate",
+      "title": "API Aberta Portugal / Open API",
+      "tags": [
+        "portugal",
+        "fuel",
+        "public-data"
+      ],
+      "summary": "Portuguese public-data candidate; exact endpoints need verification."
+    },
+    {
+      "id": "supplier-autozitania",
+      "category": "supplier",
+      "status": "workshop-priority",
+      "title": "Autozitania",
+      "tags": [
+        "supplier",
+        "parts",
+        "portugal",
+        "stock",
+        "price"
+      ],
+      "summary": "JM Beloura supplier; investigate API/EDI/XML/FTP/order integration."
+    },
+    {
+      "id": "supplier-create-drive360",
+      "category": "supplier",
+      "status": "workshop-priority",
+      "title": "Create / Drive360",
+      "tags": [
+        "supplier",
+        "parts",
+        "portugal",
+        "stock",
+        "price"
+      ],
+      "summary": "JM Beloura supplier ecosystem; investigate integration."
+    },
+    {
+      "id": "supplier-alecarpecas",
+      "category": "supplier",
+      "status": "workshop-priority",
+      "title": "AleCarPecas",
+      "tags": [
+        "supplier",
+        "parts",
+        "portugal",
+        "stock",
+        "price"
+      ],
+      "summary": "JM Beloura supplier; Auto Delta accessed through this ecosystem."
+    },
+    {
+      "id": "supplier-autodelta",
+      "category": "supplier",
+      "status": "workshop-priority",
+      "title": "Auto Delta",
+      "tags": [
+        "supplier",
+        "parts",
+        "portugal"
+      ],
+      "summary": "Supplier referenced through AleCarPecas; investigate direct integration."
+    },
+    {
+      "id": "supplier-mcoutinho",
+      "category": "supplier",
+      "status": "workshop-priority",
+      "title": "MCoutinho",
+      "tags": [
+        "supplier",
+        "parts",
+        "portugal"
+      ],
+      "summary": "JM Beloura supplier; investigate digital/API/order integration."
+    },
+    {
+      "id": "supplier-teccom",
+      "category": "supplier-integration",
+      "status": "candidate",
+      "title": "TecCom supplier integration",
+      "tags": [
+        "supplier",
+        "price",
+        "stock",
+        "orders",
+        "edi"
+      ],
+      "summary": "Potential common supplier integration layer."
+    },
+    {
+      "id": "render-docs-web",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "Render Web Services",
+      "tags": [
+        "render",
+        "deployment"
+      ],
+      "summary": "Official Render Web Service documentation.",
+      "url": "https://render.com/docs/web-services"
+    },
+    {
+      "id": "render-env",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "Render environment variables",
+      "tags": [
+        "render",
+        "secrets",
+        "environment"
+      ],
+      "summary": "Official Render environment-variable documentation.",
+      "url": "https://render.com/docs/configure-environment-variables"
+    },
+    {
+      "id": "render-port",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "Render port binding",
+      "tags": [
+        "render",
+        "port"
+      ],
+      "summary": "Official Render port-binding documentation.",
+      "url": "https://render.com/docs/web-services#port-binding"
+    }
+  ]
+}
