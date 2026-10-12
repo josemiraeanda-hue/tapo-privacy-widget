@@ -85,7 +85,7 @@ async function searchProducts({ q, location = "Lisbon, Portugal", maxPrice, sort
   const results = (Array.isArray(body.shopping_results) ? body.shopping_results : [])
     .map(normalizeProduct)
     .filter(item => item.title && item.url)
-    .filter(item => numericMax === null || item.price_value === null || item.price_value <= numericMax)
+    .filter(item => numericMax === null || (item.price_value !== null && item.price_value <= numericMax))
     .slice(0, 40);
   const result = { provider: "serpapi_google_shopping", query, location: safeLocation, country: "PT", currency: "EUR", count: results.length, cached: false, results };
   cacheSet(cacheKey, result, PRODUCT_CACHE_TTL_MS);
@@ -137,9 +137,13 @@ async function getCoupons({ q = "", country = "PT", type = "all", publisherId = 
   const body = await readJson(response, "Awin");
   const offers = Array.isArray(body) ? body :
     (Array.isArray(body?.promotions) ? body.promotions : Array.isArray(body?.offers) ? body.offers : Array.isArray(body?.data) ? body.data : []);
-  const needle = normalized(query);
+  const terms = normalized(query).split(/\s+/).filter(Boolean);
   const results = offers.map(normalizeCoupon)
-    .filter(item => !needle || normalized([item.advertiser, item.title, item.description, item.terms].join(" ")).includes(needle))
+    .filter(item => {
+      if (!terms.length) return true;
+      const haystack = normalized([item.advertiser, item.title, item.description, item.terms].join(" "));
+      return terms.every(term => haystack.includes(term));
+    })
     .filter(item => item.regions.includes("ALL") || item.regions.includes(region))
     .slice(0, 100);
   const result = {
