@@ -14,6 +14,10 @@ The endpoints already sit behind the existing Vault Bearer-token middleware. The
 
 ## Endpoints
 
+### Provider configuration status
+
+`GET /shopping/status` reports only whether the required environment variables are present; it never returns their values. Use it on staging before attempting provider requests.
+
 ### Product search
 
 \`GET /shopping/products?q=óleo%205W30&location=Lisbon%2C%20Portugal&maxPrice=40&sortBy=1\`
