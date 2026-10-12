@@ -1,0 +1,31 @@
+name: JM API Vault tests
+
+on:
+  push:
+    branches:
+      - feat/shopping-coupons-providers
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check
+        working-directory: api-vault
+        run: |
+          node --check server.js
+          node --check shopping-providers.js
+      - name: Run offline tests
+        working-directory: api-vault
+        run: node --test tests/*.test.js
