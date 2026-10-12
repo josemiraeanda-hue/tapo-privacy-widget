@@ -16,7 +16,8 @@ test("product search normalizes Portuguese-market results and caps by price", as
       assert.equal(url.searchParams.get("q"), "óleo 5W30");
       return { ok: true, status: 200, json: async () => ({ shopping_results: [
         { title: "Óleo A", price: "€20,00", extracted_price: 20, source: "Loja A", link: "https://example.com/a" },
-        { title: "Óleo B", price: "€40,00", extracted_price: 40, source: "Loja B", link: "https://example.com/b" }
+        { title: "Óleo B", price: "€40,00", extracted_price: 40, source: "Loja B", link: "https://example.com/b" },
+        { title: "Óleo C", price: "Preço indisponível", source: "Loja C", link: "https://example.com/c" }
       ] }) };
     }
   });
