@@ -38,7 +38,7 @@ app.use((req,res,next)=>{
 app.get("/",(req,res)=>res.status(200).json({
   service:"JM API Vault",
   status:"ok",
-  capabilities:["auto.vin","knowledge.search","knowledge.item","knowledge.categories","shopping.products","shopping.coupons"]
+  capabilities:["auto.vin","knowledge.search","knowledge.item","knowledge.categories","shopping.status","shopping.products","shopping.coupons"]
 }));
 
 app.get("/knowledge/search",(req,res)=>{
@@ -83,6 +83,15 @@ app.get("/auto/vin/:vin",async(req,res)=>{
     res.status(502).json({error:"Auto.dev request failed"});
   }
 });
+
+app.get("/shopping/status",(req,res)=>res.json({
+  providers:{
+    serpapi:{configured:Boolean(process.env.SERPAPI_API_KEY)},
+    awin:{configured:Boolean(process.env.AWIN_PUBLISHER_ID&&process.env.AWIN_API_TOKEN)}
+  },
+  mode:"staging-ready-check",
+  production_safe:true
+}));
 
 app.get("/shopping/products",async(req,res)=>{
   try{
