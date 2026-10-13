@@ -30,6 +30,21 @@ function scoreEntry(entry,q){
 
 app.get("/health",(req,res)=>res.status(200).json({status:"ok"}));
 
+// One-shot staging-only probe. Disabled by default; never returns credentials or product data.
+let stagingProbeConsumed=false;
+app.get("/__staging_probe",async(req,res)=>{
+  if(process.env.STAGING_DIAGNOSTIC_PROBE!=="true" || stagingProbeConsumed) return res.status(404).end();
+  stagingProbeConsumed=true;
+  if(!process.env.SERPAPI_API_KEY) return res.status(503).json({ok:false,stage:"configuration",error:"SERPAPI_API_KEY missing"});
+  try {
+    const result=await searchProducts({q:"6L1858071"});
+    return res.status(200).json({ok:true,stage:"provider",provider:result.provider,count:result.count});
+  } catch(e) {
+    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
+    return res.status(status).json({ok:false,stage:"provider",error:String(e.message||"Provider request failed").slice(0,180)});
+  }
+});
+
 app.use((req,res,next)=>{
   if(!VAULT_TOKEN || req.get("authorization")!=="Bearer "+VAULT_TOKEN) return res.status(404).end();
   next();
