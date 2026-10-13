@@ -31,10 +31,10 @@ function scoreEntry(entry,q){
 app.get("/health",(req,res)=>res.status(200).json({status:"ok"}));
 
 // One-shot staging-only probe. Disabled by default; never returns credentials or product data.
-let stagingProbeConsumed=false;
+let stagingProbeCalls=0;
 app.get("/__staging_probe",async(req,res)=>{
-  if(process.env.STAGING_DIAGNOSTIC_PROBE!=="true" || stagingProbeConsumed) return res.status(404).end();
-  stagingProbeConsumed=true;
+  if(process.env.STAGING_DIAGNOSTIC_PROBE!=="true" || stagingProbeCalls>=5) return res.status(404).end();
+  stagingProbeCalls++;
   if(!process.env.SERPAPI_API_KEY) return res.status(503).json({ok:false,stage:"configuration",error:"SERPAPI_API_KEY missing"});
   try {
     const diagnosticQuery=String(req.query.q||"iphone 15").slice(0,80);
