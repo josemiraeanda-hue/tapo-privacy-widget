@@ -37,8 +37,8 @@ app.get("/__staging_probe",async(req,res)=>{
   stagingProbeConsumed=true;
   if(!process.env.SERPAPI_API_KEY) return res.status(503).json({ok:false,stage:"configuration",error:"SERPAPI_API_KEY missing"});
   try {
-    const result=await searchProducts({q:"6L1858071"});
-    return res.status(200).json({ok:true,stage:"provider",provider:result.provider,count:result.count});
+    const diagnosticQuery=String(req.query.q||"iphone 15").slice(0,80);\n    const result=await searchProducts({q:diagnosticQuery});
+    return res.status(200).json({ok:true,stage:"provider",provider:result.provider,query:diagnosticQuery,count:result.count});
   } catch(e) {
     const status=Number.isInteger(e.statusCode)?e.statusCode:502;
     return res.status(status).json({ok:false,stage:"provider",error:String(e.message||"Provider request failed").slice(0,180)});
