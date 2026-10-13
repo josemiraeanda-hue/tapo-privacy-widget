@@ -50,12 +50,13 @@ app.get("/__staging_probe",async(req,res)=>{
     let body;
     try { body=await upstream.json(); } catch { return res.status(502).json({ok:false,stage:"provider",httpStatus:upstream.status,error:"SerpApi returned non-JSON"}); }
     const raw=Array.isArray(body?.shopping_results)?body.shopping_results:[];
-    const normalized=raw.map(p=>({title:String(p?.title||"").trim(),url:String(p?.link||"").trim()}));
+    const normalized=raw.map(p=>({title:String(p?.title||"").trim(),url:String(p?.link||p?.product_link||p?.direct_link||"").trim()}));
+    const actual=await searchProducts({q:diagnosticQuery});
     return res.status(200).json({
       ok:upstream.ok,stage:"provider",provider:"serpapi_google_shopping",query:diagnosticQuery,
       httpStatus:upstream.status,searchStatus:body?.search_metadata?.status||null,
       hasSearchMetadata:Boolean(body?.search_metadata),rawCount:raw.length,
-      normalizedCount:normalized.filter(p=>p.title&&p.url).length,
+      normalizedCount:normalized.filter(p=>p.title&&p.url).length,actualCount:actual.count,
       firstResultKeys:raw.length?Object.keys(raw[0]).slice(0,30):[],
       error:String(body?.error||"").slice(0,160)||null
     });
