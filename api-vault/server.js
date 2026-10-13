@@ -1,6 +1,7 @@
 const express=require("express");
 const fs=require("fs");
 const path=require("path");
+const {searchProducts,getCoupons}=require("./shopping-providers");
 const app=express();
 const VAULT_TOKEN=process.env.VAULT_TOKEN;
 const AUTO_DEV_API_KEY=process.env.AUTO_DEV_API_KEY;
@@ -30,14 +31,14 @@ function scoreEntry(entry,q){
 app.get("/health",(req,res)=>res.status(200).json({status:"ok"}));
 
 app.use((req,res,next)=>{
-  if(!VAULT_TOKEN || req.get("authorization")!==`Bearer ${VAULT_TOKEN}`) return res.status(404).end();
+  if(!VAULT_TOKEN || req.get("authorization")!=="Bearer "+VAULT_TOKEN) return res.status(404).end();
   next();
 });
 
 app.get("/",(req,res)=>res.status(200).json({
   service:"JM API Vault",
   status:"ok",
-  capabilities:["auto.vin","knowledge.search","knowledge.item","knowledge.categories"]
+  capabilities:["auto.vin","knowledge.search","knowledge.item","knowledge.categories","shopping.status","shopping.products","shopping.coupons"]
 }));
 
 app.get("/knowledge/search",(req,res)=>{
@@ -73,13 +74,51 @@ app.get("/auto/vin/:vin",async(req,res)=>{
   const vin=req.params.vin;
   if(!/^[A-HJ-NPR-Z0-9]{17}$/i.test(vin)) return res.status(400).json({error:"Invalid VIN"});
   try{
-    const r=await fetch(`https://api.auto.dev/vin/${encodeURIComponent(vin)}`,{
-      headers:{Authorization:`Bearer ${AUTO_DEV_API_KEY}`,Accept:"application/json"}
+    const r=await fetch("https://api.auto.dev/vin/"+encodeURIComponent(vin),{
+      headers:{Authorization:"Bearer "+AUTO_DEV_API_KEY,Accept:"application/json"}
     });
     const body=await r.text();
     res.status(r.status).type("application/json").send(body);
   }catch(e){
     res.status(502).json({error:"Auto.dev request failed"});
+  }
+});
+
+app.get("/shopping/status",(req,res)=>res.json({
+  providers:{
+    serpapi:{configured:Boolean(process.env.SERPAPI_API_KEY)},
+    awin:{configured:Boolean(process.env.AWIN_PUBLISHER_ID&&process.env.AWIN_API_TOKEN)}
+  },
+  mode:"staging-ready-check",
+  production_safe:true
+}));
+
+app.get("/shopping/products",async(req,res)=>{
+  try{
+    const result=await searchProducts({
+      q:req.query.q,
+      location:req.query.location,
+      maxPrice:req.query.maxPrice,
+      sortBy:req.query.sortBy
+    });
+    res.json(result);
+  }catch(e){
+    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
+    res.status(status).json({error:e.message||"Product search failed"});
+  }
+});
+
+app.get("/shopping/coupons",async(req,res)=>{
+  try{
+    const result=await getCoupons({
+      q:req.query.q,
+      country:req.query.country||"PT",
+      type:req.query.type||"all"
+    });
+    res.json(result);
+  }catch(e){
+    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
+    res.status(status).json({error:e.message||"Coupon search failed"});
   }
 });
 
