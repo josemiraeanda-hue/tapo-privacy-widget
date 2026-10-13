@@ -38,11 +38,29 @@ app.get("/__staging_probe",async(req,res)=>{
   if(!process.env.SERPAPI_API_KEY) return res.status(503).json({ok:false,stage:"configuration",error:"SERPAPI_API_KEY missing"});
   try {
     const diagnosticQuery=String(req.query.q||"iphone 15").slice(0,80);
-    const result=await searchProducts({q:diagnosticQuery});
-    return res.status(200).json({ok:true,stage:"provider",provider:result.provider,query:diagnosticQuery,count:result.count});
+    const key=process.env.SERPAPI_API_KEY;
+    const url=new URL("https://serpapi.com/search.json");
+    url.searchParams.set("engine","google_shopping");
+    url.searchParams.set("q",diagnosticQuery);
+    url.searchParams.set("location","Lisbon, Portugal");
+    url.searchParams.set("gl","pt");
+    url.searchParams.set("hl","pt-PT");
+    url.searchParams.set("api_key",key);
+    const upstream=await fetch(url.toString(),{headers:{Accept:"application/json"},signal:AbortSignal.timeout(15000)});
+    let body;
+    try { body=await upstream.json(); } catch { return res.status(502).json({ok:false,stage:"provider",httpStatus:upstream.status,error:"SerpApi returned non-JSON"}); }
+    const raw=Array.isArray(body?.shopping_results)?body.shopping_results:[];
+    const normalized=raw.map(p=>({title:String(p?.title||"").trim(),url:String(p?.link||"").trim()}));
+    return res.status(200).json({
+      ok:upstream.ok,stage:"provider",provider:"serpapi_google_shopping",query:diagnosticQuery,
+      httpStatus:upstream.status,searchStatus:body?.search_metadata?.status||null,
+      hasSearchMetadata:Boolean(body?.search_metadata),rawCount:raw.length,
+      normalizedCount:normalized.filter(p=>p.title&&p.url).length,
+      firstResultKeys:raw.length?Object.keys(raw[0]).slice(0,30):[],
+      error:String(body?.error||"").slice(0,160)||null
+    });
   } catch(e) {
-    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
-    return res.status(status).json({ok:false,stage:"provider",error:String(e.message||"Provider request failed").slice(0,180)});
+    return res.status(502).json({ok:false,stage:"provider",error:String(e.message||"Provider request failed").slice(0,180)});
   }
 });
 
