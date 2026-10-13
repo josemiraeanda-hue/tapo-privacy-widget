@@ -42,7 +42,7 @@ function normalizeProduct(item) {
     price_value: price,
     currency: cleanText(item?.currency, 8) || "EUR",
     seller: cleanText(item?.source, 120) || null,
-    url: cleanText(item?.link, 1500) || null,
+    url: cleanText(item?.link || item?.product_link || item?.direct_link, 1500) || null,
     delivery: cleanText(item?.delivery, 200) || null,
     product_id: cleanText(item?.product_id, 100) || null,
     image: cleanText(item?.thumbnail, 1500) || null,
