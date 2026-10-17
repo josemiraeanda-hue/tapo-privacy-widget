@@ -58,3 +58,10 @@ A discovered voucher is not validated until checkout confirms its applicability.
 6. **SerpApi Google Shopping.** Broad discovery with a limited free quota, but not proof of delivered cost.
 
 Auto.dev's public Plate-to-VIN page currently says the feature is for US plates and is not included in Free/Growth; do not use it as a Portugal registration decoder.
+
+
+## TelePeças adapter (feature branch)
+- Protected route: `GET /shopping/telepecas?q=6Q0423155AA` with optional `maxPrice=100`.
+- Required Render environment variable: `TELEPECAS_API_TOKEN`. Obtain it from an authorized developer/seller account; do not use public example credentials found in documentation.
+- The public TelePeças API portal describes its APIs as free, but access depends on OAuth2 credentials and seller/integrator permissions; the account may have different quotas and data scopes.
+- Search results expose item/reference/advertised price/condition. They do not prove compatibility, shipping, VAT, or final delivered cost.
