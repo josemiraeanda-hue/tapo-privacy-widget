@@ -1,5 +1,5 @@
 {
-  "version": "1.1.2",
+  "version": "1.1.3",
   "updated_at": "2026-10-17",
   "scope": "JM Beloura automotive knowledge",
   "rules": [
@@ -1393,6 +1393,91 @@
       ],
       "summary": "Protected POST /shopping/landed-cost ranks offers with a verified delivered total only when shipping, tax treatment, customs and coupon state are explicit. Missing evidence leaves total null and records missing components.",
       "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/landed-cost.js"
+    },
+    {
+      "id": "telepecas-api-official",
+      "category": "parts-supplier-api",
+      "status": "access-gated",
+      "title": "TelePeças API — stock, vehicle lookup and parts integration",
+      "tags": [
+        "portugal",
+        "parts",
+        "oem",
+        "compatibility",
+        "stock",
+        "price",
+        "matricula",
+        "vin",
+        "api",
+        "free-api"
+      ],
+      "summary": "Official API portal says APIs are free and offers sandbox/production modes; OAuth2 and seller/integrator permissions are required. Marketing page claims stock search, OEM/IAM compatibility, plate/VIN decoding, quotes/orders and webhooks; access and plan limits vary. Best no-subscription candidate to verify first.",
+      "url": "https://api.telepecas.com/docs"
+    },
+    {
+      "id": "carapi-portugal-plate-vin",
+      "category": "vehicle-identification",
+      "status": "commercial-per-lookup",
+      "title": "CarAPI.app Portugal plate-to-VIN",
+      "tags": [
+        "portugal",
+        "matricula",
+        "plate-to-vin",
+        "vin",
+        "api",
+        "pricing"
+      ],
+      "summary": "Official docs list Portugal (PT) as supported and describe returning year, make, model and VIN. Current plate credits: $4/10, $35/100, $150/500, $250/1000 ($0.25-$0.40 per lookup). Test registrations are documented for US/Canada/UK, not Portugal; no free Portugal test confirmed.",
+      "url": "https://carapi.app/docs/api/license-plate"
+    },
+    {
+      "id": "ebay-browse-api",
+      "category": "parts-shopping",
+      "status": "candidate",
+      "title": "eBay Browse API",
+      "tags": [
+        "global",
+        "parts",
+        "oem",
+        "reference",
+        "price",
+        "shipping",
+        "compatibility",
+        "oauth",
+        "api"
+      ],
+      "summary": "Official API supports listing search by keyword/GTIN/product/compatibility and item-level compatibility checks. Requires application access token; use as a global marketplace source, not a fitment guarantee. Verify production access, Portugal shipping details and seller terms before implementation.",
+      "url": "https://developer.ebay.com/develop/api/buy/browse_api"
+    },
+    {
+      "id": "serpapi-google-shopping-quota",
+      "category": "parts-shopping",
+      "status": "commercial-with-free-quota",
+      "title": "SerpApi Google Shopping API",
+      "tags": [
+        "google-shopping",
+        "price-search",
+        "products",
+        "free-quota",
+        "api"
+      ],
+      "summary": "Official API supports Portugal localization, price filters and free-shipping search filter; cached exact queries are free and not counted. Search results indicate a 250-search/month free tier; paid Starter is $25/month for 1,000 searches. Results do not prove checkout price, stock, shipping or VAT.",
+      "url": "https://serpapi.com/google-shopping-api"
+    },
+    {
+      "id": "render-free-plan-limits",
+      "category": "infrastructure",
+      "status": "official-limits-verified",
+      "title": "Render Free service limitations",
+      "tags": [
+        "render",
+        "free-hosting",
+        "cold-start",
+        "limits",
+        "storage"
+      ],
+      "summary": "Official docs: free web services spin down after 15 minutes idle, take about a minute to restart, have ephemeral local files, and share 750 free instance-hours per workspace/month; free Postgres expires after 30 days. Suitable for prototype/testing, not guaranteed always-on production.",
+      "url": "https://render.com/docs/free"
     }
   ]
 }
