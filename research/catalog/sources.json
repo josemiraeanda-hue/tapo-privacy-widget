@@ -1,0 +1,1970 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-17",
+  "description": "Central tagged source catalog; candidates are not endorsements or verified integrations.",
+  "sources": [
+    {
+      "id": "project-jm-api-vault",
+      "name": "JM API Vault",
+      "url": "https://jm-api-vault.onrender.com",
+      "platform": "infrastructure",
+      "topics": [
+        "infrastructure",
+        "vault",
+        "gateway",
+        "render",
+        "architecture"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Central protected gateway for JM Beloura automotive APIs."
+    },
+    {
+      "id": "render-service",
+      "name": "Render service jm-api-vault",
+      "url": "https://dashboard.render.com/web/srv-dau4vamk1f9s73acgna0",
+      "platform": "infrastructure",
+      "topics": [
+        "infrastructure",
+        "render",
+        "deployment"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Frankfurt, Free plan, auto deploy from main."
+    },
+    {
+      "id": "github-repo",
+      "name": "JM API Vault GitHub",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget",
+      "platform": "github",
+      "topics": [
+        "infrastructure",
+        "github",
+        "source"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Repository containing api-vault."
+    },
+    {
+      "id": "auto-dev-vin",
+      "name": "Auto.dev VIN Decode",
+      "url": "https://docs.auto.dev/v2/products/vin-decode",
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "auto.dev",
+        "vin",
+        "vehicle",
+        "decode"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Gateway route /auto/vin/:vin; API key stays server-side."
+    },
+    {
+      "id": "officegest-api",
+      "name": "OfficeGest API v2",
+      "url": "https://api.officegest.com/docs/officegest-api/v2",
+      "platform": "workshop-software",
+      "topics": [
+        "workshop-software",
+        "officegest",
+        "api",
+        "workshop",
+        "billing"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Target integration for customers, documents and workshop workflow."
+    },
+    {
+      "id": "telepecas-api",
+      "name": "TelePeças API",
+      "url": "https://www.telepecas.com/api/",
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "parts",
+        "portugal",
+        "api"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official API reference identified for parts/vehicle integration."
+    },
+    {
+      "id": "autodata-developer",
+      "name": "Autodata Developer",
+      "url": "https://developer.autodata-group.com/docs",
+      "platform": "technical-data",
+      "topics": [
+        "technical-data",
+        "autodata",
+        "technical",
+        "maintenance",
+        "repair"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Commercial technical-data integration source."
+    },
+    {
+      "id": "matricula-co-pt",
+      "name": "Matricula.co.pt / RegCheck Portugal plate lookup",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/portugal",
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "matricula",
+        "plate",
+        "portugal",
+        "vin"
+      ],
+      "status": "confirmed-docs",
+      "last_checked": "2026-10-17",
+      "quality": "documentation-verified",
+      "evidence": "Official Portugal-specific API documentation and REST API guide fetched 2026-10-17.",
+      "notes": "CheckPortugal REST route documented; Basic Auth username + API key. Site advertises 10 free test credits then €0.20 per successful lookup, minimum 100 credits. VIN is not guaranteed in the documented Portugal response."
+    },
+    {
+      "id": "open-labor-project",
+      "name": "Open Labor Project",
+      "url": null,
+      "platform": "technical-data",
+      "topics": [
+        "technical-data",
+        "labor",
+        "maintenance",
+        "dtc",
+        "fluids",
+        "torque",
+        "vin"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate labor/maintenance/technical data source; revalidate current API and PT coverage."
+    },
+    {
+      "id": "carapi-dev",
+      "name": "CarAPI.dev",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "plate",
+        "vin",
+        "vehicle",
+        "portugal"
+      ],
+      "status": "limited",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Previously checked plate-to-VIN coverage did not include Portugal; revalidate before use."
+    },
+    {
+      "id": "vehdb",
+      "name": "VEHDB",
+      "url": null,
+      "platform": "vehicle-data",
+      "topics": [
+        "vehicle-data",
+        "vehicle",
+        "motorcycle",
+        "specs",
+        "recalls",
+        "fitment",
+        "vin"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate vehicle database/API."
+    },
+    {
+      "id": "tecalliance-tecdoc",
+      "name": "TecAlliance / TecDoc",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "parts",
+        "oe",
+        "cross-reference",
+        "vehicle"
+      ],
+      "status": "commercial",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Primary commercial ecosystem for vehicle identification and parts data."
+    },
+    {
+      "id": "tecdoc-web-service",
+      "name": "TecDoc Web Service",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "webservice",
+        "parts"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Commercial integration route; exact current package/endpoints require TecAlliance confirmation."
+    },
+    {
+      "id": "tecdoc-vehicle-identification",
+      "name": "TecDoc Vehicle Identification Service",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "vehicle",
+        "vin"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Vehicle identification component to evaluate."
+    },
+    {
+      "id": "tecdoc-oe-parts",
+      "name": "TecDoc OE Parts Data",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "oe",
+        "parts"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "OE/reference mapping source to evaluate."
+    },
+    {
+      "id": "tecdoc-vio",
+      "name": "TecDoc VIO Data",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "vio",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Vehicle-in-operation data product to evaluate."
+    },
+    {
+      "id": "tecdoc-teccom",
+      "name": "TecCom",
+      "url": null,
+      "platform": "supplier-integration",
+      "topics": [
+        "supplier-integration",
+        "teccom",
+        "orders",
+        "stock",
+        "price",
+        "supplier",
+        "edi"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Potential supplier price/availability/order integration."
+    },
+    {
+      "id": "haynespro-workshopdata",
+      "name": "HaynesPro WorkshopData",
+      "url": null,
+      "platform": "technical-data",
+      "topics": [
+        "technical-data",
+        "haynespro",
+        "workshopdata",
+        "maintenance",
+        "repair",
+        "vin",
+        "tecdoc"
+      ],
+      "status": "commercial",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Commercial workshop technical-data source."
+    },
+    {
+      "id": "bosch-aftermarket",
+      "name": "Bosch Aftermarket",
+      "url": null,
+      "platform": "manufacturer",
+      "topics": [
+        "manufacturer",
+        "bosch",
+        "parts",
+        "diagnostics",
+        "technical"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Manufacturer catalogue/technical integration candidate."
+    },
+    {
+      "id": "zf-aftermarket",
+      "name": "ZF Aftermarket / SDM365",
+      "url": null,
+      "platform": "manufacturer",
+      "topics": [
+        "manufacturer",
+        "zf",
+        "parts",
+        "technical"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Manufacturer catalogue/technical source candidate."
+    },
+    {
+      "id": "schaeffler",
+      "name": "Schaeffler / LuK INA FAG",
+      "url": null,
+      "platform": "manufacturer",
+      "topics": [
+        "manufacturer",
+        "schaeffler",
+        "luk",
+        "ina",
+        "fag",
+        "parts"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Manufacturer catalogue and technical-data candidate."
+    },
+    {
+      "id": "michelin-developer",
+      "name": "Michelin Developer APIs",
+      "url": null,
+      "platform": "tyres",
+      "topics": [
+        "tyres",
+        "michelin",
+        "tyres",
+        "ratings",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Tyre/vehicle/ratings API candidate; verify current availability."
+    },
+    {
+      "id": "tire-wheel-fitment",
+      "name": "Tire & Wheel Fitment / VDIM",
+      "url": null,
+      "platform": "tyres",
+      "topics": [
+        "tyres",
+        "tyres",
+        "wheels",
+        "fitment",
+        "oem",
+        "torque"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate OEM/alternative size and fitment source."
+    },
+    {
+      "id": "nhtsa",
+      "name": "NHTSA APIs",
+      "url": null,
+      "platform": "recalls",
+      "topics": [
+        "recalls",
+        "recalls",
+        "complaints",
+        "investigations",
+        "vin"
+      ],
+      "status": "limited",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Useful official US source; not Portugal-specific."
+    },
+    {
+      "id": "asf-tem-seguro",
+      "name": "ASF / Tem Seguro",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "insurance",
+        "portugal",
+        "matricula"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese insurance lookup route; access method needs verification."
+    },
+    {
+      "id": "imt-ipo",
+      "name": "IMT / IPO",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "inspection",
+        "ipo",
+        "portugal",
+        "matricula"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese inspection source; access constraints may apply."
+    },
+    {
+      "id": "irn-registo-automovel",
+      "name": "IRN / Registo Automóvel",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "ownership",
+        "liens",
+        "portugal",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official registration/encumbrance domain; no unrestricted plate API assumed."
+    },
+    {
+      "id": "at-iuc",
+      "name": "AT / IUC",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "iuc",
+        "tax",
+        "portugal",
+        "matricula"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese tax/IUC source; no public plate API assumed."
+    },
+    {
+      "id": "ense-fuel",
+      "name": "ENSE fuel prices",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "fuel",
+        "portugal",
+        "prices"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese fuel-price data candidate."
+    },
+    {
+      "id": "ipma-api",
+      "name": "IPMA API",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "weather",
+        "portugal",
+        "api"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official Portuguese weather API candidate."
+    },
+    {
+      "id": "carvertical",
+      "name": "carVertical",
+      "url": null,
+      "platform": "vehicle-history",
+      "topics": [
+        "vehicle-history",
+        "history",
+        "damage",
+        "mileage",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Commercial European vehicle-history candidate."
+    },
+    {
+      "id": "autodna",
+      "name": "autoDNA",
+      "url": null,
+      "platform": "vehicle-history",
+      "topics": [
+        "vehicle-history",
+        "history",
+        "vehicle",
+        "vin"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Commercial vehicle-history candidate."
+    },
+    {
+      "id": "carfax-europe",
+      "name": "CARFAX Europe",
+      "url": null,
+      "platform": "vehicle-history",
+      "topics": [
+        "vehicle-history",
+        "history",
+        "vehicle",
+        "vin"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Commercial European vehicle-history candidate."
+    },
+    {
+      "id": "vinwhere",
+      "name": "VINWhere",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "VIN vehicle-data candidate."
+    },
+    {
+      "id": "db-vin",
+      "name": "DB.VIN",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "VIN vehicle-data candidate."
+    },
+    {
+      "id": "mcp-vin",
+      "name": "MCP.VIN",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "mcp",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "VIN/MCP candidate."
+    },
+    {
+      "id": "ipnova-vindecoder",
+      "name": "VINDecoderCheck / IPNOVA",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "decoder"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "VIN decoding candidate; limits require verification."
+    },
+    {
+      "id": "vehicode",
+      "name": "Vehicode",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "europe",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "European VIN identification candidate."
+    },
+    {
+      "id": "vehicle-finder",
+      "name": "Vehicle Finder",
+      "url": null,
+      "platform": "vehicle-data",
+      "topics": [
+        "vehicle-data",
+        "vin",
+        "maintenance",
+        "recalls",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate VIN/maintenance/recall source."
+    },
+    {
+      "id": "transparentcars",
+      "name": "TransparentCars Portugal",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "portugal",
+        "market",
+        "iuc",
+        "json",
+        "mcp"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese market/catalogue candidate; verify current public access."
+    },
+    {
+      "id": "simplecheck",
+      "name": "SimpleCheck",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "matricula",
+        "portugal",
+        "plate"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese plate validation/data candidate; verify current docs/terms."
+    },
+    {
+      "id": "fapi-catalog",
+      "name": "FAPI Catalog",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "parts",
+        "oe",
+        "cross-reference",
+        "vehicle",
+        "vin"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Parts/OE/cross-reference candidate."
+    },
+    {
+      "id": "vehiclesdb",
+      "name": "VehiclesDB",
+      "url": null,
+      "platform": "vehicle-data",
+      "topics": [
+        "vehicle-data",
+        "vehicle",
+        "motorcycle",
+        "models",
+        "specs"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Open/free vehicle catalogue candidate."
+    },
+    {
+      "id": "appbyte-vehicle-catalog",
+      "name": "AppByte Vehicle Catalog",
+      "url": null,
+      "platform": "vehicle-data",
+      "topics": [
+        "vehicle-data",
+        "vehicle",
+        "models",
+        "versions",
+        "specs"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Make/model/version/spec candidate."
+    },
+    {
+      "id": "parts-resolve",
+      "name": "Parts Resolve",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "parts",
+        "oe",
+        "aftermarket"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Parts resolution candidate."
+    },
+    {
+      "id": "carscan",
+      "name": "CarScan API",
+      "url": null,
+      "platform": "technical-data",
+      "topics": [
+        "technical-data",
+        "maintenance",
+        "dtc",
+        "vin",
+        "recalls",
+        "tsb"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate maintenance/DTC/TSB/recall API."
+    },
+    {
+      "id": "revcardata",
+      "name": "RevCarData",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "europe",
+        "engine",
+        "recalls"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "European VIN/engine/version/recall candidate."
+    },
+    {
+      "id": "vinapi-io",
+      "name": "VINAPI.io",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "plate",
+        "ocr"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "VIN, plate recognition and OCR candidate."
+    },
+    {
+      "id": "oneautoapi",
+      "name": "OneAutoAPI",
+      "url": null,
+      "platform": "vehicle-data",
+      "topics": [
+        "vehicle-data",
+        "vin",
+        "plate",
+        "history",
+        "recalls",
+        "valuation"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate VIN, plate-to-VIN, history, recalls, mileage and valuation source."
+    },
+    {
+      "id": "licenseplatedata",
+      "name": "LicensePlateData",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "plate",
+        "vin",
+        "images"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Plate/VIN/image candidate."
+    },
+    {
+      "id": "mrvin",
+      "name": "MRVIN",
+      "url": null,
+      "platform": "vehicle-history",
+      "topics": [
+        "vehicle-history",
+        "vin",
+        "history",
+        "mileage",
+        "damage",
+        "europe"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "European VIN/history candidate."
+    },
+    {
+      "id": "getcarapi",
+      "name": "GetCarAPI",
+      "url": null,
+      "platform": "vehicle-history",
+      "topics": [
+        "vehicle-history",
+        "vin",
+        "history",
+        "listings",
+        "prices"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Vehicle history/listings/pricing candidate."
+    },
+    {
+      "id": "autowiz",
+      "name": "AutoWiz",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "oem",
+        "cross-reference",
+        "parts"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "OEM/cross-reference candidate."
+    },
+    {
+      "id": "wheels-easy",
+      "name": "Wheels Easy",
+      "url": null,
+      "platform": "tyres",
+      "topics": [
+        "tyres",
+        "wheels",
+        "fitment",
+        "tyres",
+        "mcp"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Wheel/fitment candidate."
+    },
+    {
+      "id": "tyresaddict",
+      "name": "TyresAddict",
+      "url": null,
+      "platform": "tyres",
+      "topics": [
+        "tyres",
+        "tyres",
+        "wheels",
+        "fitment"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Tyre/wheel fitment candidate."
+    },
+    {
+      "id": "plate-to-vin",
+      "name": "PlateToVIN",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "plate",
+        "vin",
+        "images"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Plate/VIN imagery candidate."
+    },
+    {
+      "id": "tecor-license",
+      "name": "Tecor/Tecro License",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "vin",
+        "plate",
+        "europe",
+        "parts"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "European VIN/plate candidate."
+    },
+    {
+      "id": "carapi-app",
+      "name": "CarAPI.app",
+      "url": null,
+      "platform": "vehicle-data",
+      "topics": [
+        "vehicle-data",
+        "vin",
+        "plate",
+        "obd",
+        "motorcycle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "VIN/plate/OBD/powersports candidate."
+    },
+    {
+      "id": "tec3",
+      "name": "Tec3",
+      "url": null,
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "tecrmi",
+        "vin",
+        "rest",
+        "stock",
+        "price"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Candidate integration layer around TecDoc/TecRMI/VIN/stock/price."
+    },
+    {
+      "id": "ymmfit",
+      "name": "YMMFit",
+      "url": null,
+      "platform": "fitment",
+      "topics": [
+        "fitment",
+        "fitment",
+        "accessories",
+        "12v"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Accessory fitment candidate."
+    },
+    {
+      "id": "car-audio-fitment",
+      "name": "Car Audio Fitment API",
+      "url": null,
+      "platform": "fitment",
+      "topics": [
+        "fitment",
+        "audio",
+        "fitment",
+        "vehicle"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Vehicle/audio fitment candidate."
+    },
+    {
+      "id": "open-api-portugal",
+      "name": "API Aberta Portugal / Open API",
+      "url": null,
+      "platform": "portugal",
+      "topics": [
+        "portugal",
+        "portugal",
+        "fuel",
+        "public-data"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Portuguese public-data candidate; exact endpoints need verification."
+    },
+    {
+      "id": "supplier-autozitania",
+      "name": "Autozitania",
+      "url": null,
+      "platform": "supplier",
+      "topics": [
+        "supplier",
+        "supplier",
+        "parts",
+        "portugal",
+        "stock",
+        "price"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "JM Beloura supplier; investigate API/EDI/XML/FTP/order integration."
+    },
+    {
+      "id": "supplier-create-drive360",
+      "name": "Create / Drive360",
+      "url": null,
+      "platform": "supplier",
+      "topics": [
+        "supplier",
+        "supplier",
+        "parts",
+        "portugal",
+        "stock",
+        "price"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "JM Beloura supplier ecosystem; investigate integration."
+    },
+    {
+      "id": "supplier-alecarpecas",
+      "name": "AleCarPecas",
+      "url": null,
+      "platform": "supplier",
+      "topics": [
+        "supplier",
+        "supplier",
+        "parts",
+        "portugal",
+        "stock",
+        "price"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "JM Beloura supplier; Auto Delta accessed through this ecosystem."
+    },
+    {
+      "id": "supplier-autodelta",
+      "name": "Auto Delta",
+      "url": null,
+      "platform": "supplier",
+      "topics": [
+        "supplier",
+        "supplier",
+        "parts",
+        "portugal"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Supplier referenced through AleCarPecas; investigate direct integration."
+    },
+    {
+      "id": "supplier-mcoutinho",
+      "name": "MCoutinho",
+      "url": null,
+      "platform": "supplier",
+      "topics": [
+        "supplier",
+        "supplier",
+        "parts",
+        "portugal"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "JM Beloura supplier; investigate digital/API/order integration."
+    },
+    {
+      "id": "supplier-teccom",
+      "name": "TecCom supplier integration",
+      "url": null,
+      "platform": "supplier-integration",
+      "topics": [
+        "supplier-integration",
+        "supplier",
+        "price",
+        "stock",
+        "orders",
+        "edi"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Potential common supplier integration layer."
+    },
+    {
+      "id": "render-docs-web",
+      "name": "Render Web Services",
+      "url": "https://render.com/docs/web-services",
+      "platform": "infrastructure",
+      "topics": [
+        "infrastructure",
+        "render",
+        "deployment"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official Render Web Service documentation."
+    },
+    {
+      "id": "render-env",
+      "name": "Render environment variables",
+      "url": "https://render.com/docs/configure-environment-variables",
+      "platform": "infrastructure",
+      "topics": [
+        "infrastructure",
+        "render",
+        "secrets",
+        "environment"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official Render environment-variable documentation."
+    },
+    {
+      "id": "render-port",
+      "name": "Render port binding",
+      "url": "https://render.com/docs/web-services#port-binding",
+      "platform": "infrastructure",
+      "topics": [
+        "infrastructure",
+        "render",
+        "port"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official Render port-binding documentation."
+    },
+    {
+      "id": "research-fmhy",
+      "name": "FMHY — Free Media Heck Yeah",
+      "url": "https://fmhy.net/",
+      "platform": "research-directory",
+      "topics": [
+        "research-directory",
+        "freemedia",
+        "streaming",
+        "downloads",
+        "software",
+        "android",
+        "research-directory"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Community-maintained index for legal/availability checks of public freemedia resources; review individual links and legal status before use."
+    },
+    {
+      "id": "research-fmhy-github",
+      "name": "FMHY GitHub Wiki",
+      "url": "https://github.com/fmhy/FMHY/wiki/",
+      "platform": "github",
+      "topics": [
+        "research-directory",
+        "github",
+        "freemedia",
+        "streaming",
+        "downloads",
+        "android"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Versioned community directory; useful for checking changes and source provenance."
+    },
+    {
+      "id": "research-reddit-fmhy",
+      "name": "Reddit r/FREEMEDIAHECKYEAH",
+      "url": "https://www.reddit.com/r/FREEMEDIAHECKYEAH/",
+      "platform": "reddit",
+      "topics": [
+        "research-community",
+        "reddit",
+        "community",
+        "freemedia",
+        "research"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Community discussion and reports; claims require corroboration."
+    },
+    {
+      "id": "research-reddit-piracy",
+      "name": "Reddit r/Piracy",
+      "url": "https://www.reddit.com/r/Piracy/",
+      "platform": "reddit",
+      "topics": [
+        "research-community",
+        "reddit",
+        "community",
+        "piracy",
+        "research"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Community discussion; treat links and reputation claims as unverified until cross-checked."
+    },
+    {
+      "id": "research-tgstat",
+      "name": "TGStat public Telegram search",
+      "url": "https://tgstat.com/channels/search",
+      "platform": "telegram",
+      "topics": [
+        "research-directory",
+        "telegram",
+        "channels",
+        "search",
+        "public-directory"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Searches public Telegram channels/posts; only public content accessible without unauthorized access."
+    },
+    {
+      "id": "research-discord-discovery",
+      "name": "Discord Server Discovery",
+      "url": "https://discord.com/servers",
+      "platform": "discord",
+      "topics": [
+        "research-directory",
+        "discord",
+        "servers",
+        "communities",
+        "public-directory"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official public discovery surface for Discord communities."
+    },
+    {
+      "id": "research-disboard",
+      "name": "DISBOARD",
+      "url": "https://disboard.org/search",
+      "platform": "discord",
+      "topics": [
+        "research-directory",
+        "discord",
+        "servers",
+        "communities",
+        "directory"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Third-party public Discord server directory; validate server legitimacy and safety."
+    },
+    {
+      "id": "research-revanced",
+      "name": "ReVanced Patcher",
+      "url": "https://github.com/ReVanced/revanced-patcher",
+      "platform": "github",
+      "topics": [
+        "android-modding",
+        "android",
+        "patching",
+        "open-source",
+        "github",
+        "modding"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Open-source patching tooling; inspect official repository, releases, source and build instructions."
+    },
+    {
+      "id": "research-awesome-android-root",
+      "name": "Awesome Android Root",
+      "url": "https://github.com/awesome-android-root/awesome-android-root",
+      "platform": "github",
+      "topics": [
+        "android-modding",
+        "android",
+        "root",
+        "modding",
+        "github",
+        "open-source"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Community-curated Android rooting/modding resource list; review maintenance and links."
+    },
+    {
+      "id": "research-github-revanced-topic",
+      "name": "GitHub topic: ReVanced",
+      "url": "https://github.com/topics/revanced",
+      "platform": "github",
+      "topics": [
+        "android-modding",
+        "android",
+        "revanced",
+        "github",
+        "repositories"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Discovery surface for public repositories; verify maintainer identity and repository provenance."
+    },
+    {
+      "id": "research-fmhy-mobile",
+      "name": "FMHY Mobile",
+      "url": "https://github.com/fmhy/FMHY/wiki/Mobile",
+      "platform": "research-directory",
+      "topics": [
+        "research-directory",
+        "android",
+        "mobile",
+        "apps",
+        "freemedia"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Community-maintained mobile resource list; check APK provenance, signatures, permissions and license."
+    },
+    {
+      "id": "research-fmhy-streaming",
+      "name": "FMHY Streaming",
+      "url": "https://github.com/fmhy/FMHY/wiki/Streaming",
+      "platform": "research-directory",
+      "topics": [
+        "research-directory",
+        "streaming",
+        "movies",
+        "series",
+        "video"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Directory of streaming resources; legal status, safety and availability must be checked per source."
+    },
+    {
+      "id": "research-fmhy-downloading",
+      "name": "FMHY Downloading",
+      "url": "https://github.com/fmhy/FMHY/wiki/Downloading",
+      "platform": "research-directory",
+      "topics": [
+        "research-directory",
+        "downloads",
+        "files",
+        "tools"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Directory of downloading tools and resources; validate safety and licensing."
+    },
+    {
+      "id": "research-fmhy-misc",
+      "name": "FMHY Misc",
+      "url": "https://github.com/fmhy/FMHY/wiki/Misc",
+      "platform": "research-directory",
+      "topics": [
+        "research-directory",
+        "misc",
+        "tools",
+        "research",
+        "directory"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "General resource index for additional categories and tools."
+    },
+    {
+      "id": "matricula-co-pt-pricing",
+      "name": "Matricula.co.pt — plate-to-VIN API",
+      "url": "https://matricula.co.pt/",
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "matricula",
+        "plate-to-vin",
+        "vin",
+        "api",
+        "pricing"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Previously identified paid service: 10 free queries then €0.20/query; minimum purchase reported as 100 queries (€20). Reconfirm current terms/pricing and test Portugal plate coverage before integration."
+    },
+    {
+      "id": "vehicle-search-criteria",
+      "name": "JM Beloura vehicle lookup requirements",
+      "url": null,
+      "platform": "vehicle-identification",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "matricula",
+        "vin",
+        "make",
+        "model",
+        "version",
+        "engine",
+        "vehicle-search"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Required workflow: Portuguese registration → VIN where available → exact make/model/version/engine → technical data; Auto.dev VIN decode alone does not solve Portuguese plate-to-VIN."
+    },
+    {
+      "id": "parts-global-cost",
+      "name": "Global parts cost comparison requirements",
+      "url": null,
+      "platform": "parts-shopping",
+      "topics": [
+        "parts-shopping",
+        "parts",
+        "oem",
+        "reference",
+        "cross-reference",
+        "price",
+        "shipping",
+        "vat",
+        "landed-cost",
+        "coupons",
+        "stock"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Compare OEM and aftermarket references, compatibility evidence, stock, currency, price, shipping to Portugal, VAT/customs where applicable, coupon eligibility, delivery time and total delivered price. Never mark shipping or coupon as verified without checkout/provider evidence."
+    },
+    {
+      "id": "supplier-autozitania-integration",
+      "name": "Autozitania integration investigation",
+      "url": null,
+      "platform": "supplier-integration",
+      "topics": [
+        "supplier-integration",
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Priority supplier. Request or verify official API, EDI/XML/CSV/FTP access, account-specific price/stock and order workflows before implementing."
+    },
+    {
+      "id": "supplier-drive360-integration",
+      "name": "Create / Drive360 integration investigation",
+      "url": null,
+      "platform": "supplier-integration",
+      "topics": [
+        "supplier-integration",
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Priority supplier ecosystem. Verify permitted data access and account-specific integration route."
+    },
+    {
+      "id": "supplier-alecarpecas-integration",
+      "name": "AleCarPecas / Auto Delta integration investigation",
+      "url": null,
+      "platform": "supplier-integration",
+      "topics": [
+        "supplier-integration",
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Priority supplier route. Verify direct or portal-based data access, compatibility lookup and order submission."
+    },
+    {
+      "id": "supplier-mcoutinho-integration",
+      "name": "MCoutinho integration investigation",
+      "url": null,
+      "platform": "supplier-integration",
+      "topics": [
+        "supplier-integration",
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "status": "workshop-priority",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Priority supplier. Verify official digital catalogue and account-specific access."
+    },
+    {
+      "id": "research-adult-legal-content",
+      "name": "Legal adult-content research scope",
+      "url": null,
+      "platform": "content-research",
+      "topics": [
+        "content-research",
+        "adult",
+        "18+",
+        "consenting-adults",
+        "content-directory"
+      ],
+      "status": "policy-scoped",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Research only legal content involving consenting adults; do not deliberately search for, retain or link to sexual abuse material or content involving minors."
+    },
+    {
+      "id": "api-price-compare-serpapi",
+      "name": "SerpApi Google Shopping integration",
+      "url": "https://serpapi.com/search-api",
+      "platform": "parts-shopping",
+      "topics": [
+        "parts-shopping",
+        "shopping",
+        "products",
+        "price",
+        "serpapi",
+        "api"
+      ],
+      "status": "commercial-candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Code exists in shopping-providers.js. Requires SERPAPI_API_KEY; results are search candidates, not confirmed stock, shipping or final delivered prices."
+    },
+    {
+      "id": "api-coupons-awin",
+      "name": "Awin Promotions API integration",
+      "url": "https://developers.awin.com/",
+      "platform": "coupon-integration",
+      "topics": [
+        "coupon-integration",
+        "coupons",
+        "promotions",
+        "awin",
+        "api",
+        "affiliate"
+      ],
+      "status": "commercial-candidate",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Code exists in shopping-providers.js. Requires publisher ID/token and a valid Awin publisher account; feed candidates are not checkout-validated coupons."
+    },
+    {
+      "id": "api-tecalliance-official",
+      "name": "TecAlliance TecDoc Web Service",
+      "url": "https://www.tecalliance.net/products/cards/tecdoc-web-service",
+      "platform": "parts",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "vin",
+        "vrm",
+        "oem",
+        "cross-reference",
+        "vehicle-identification",
+        "parts"
+      ],
+      "status": "commercial",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Official commercial parts/vehicle catalogue service; product pages describe lookup by vehicle details, VIN, VRM or OE number. Obtain applicable licence and confirm Portuguese coverage."
+    },
+    {
+      "id": "research-source-catalog-design",
+      "name": "JM Research Vault source catalog",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/tree/feat/jm-vault-research-catalog-2026-10/research",
+      "platform": "infrastructure",
+      "topics": [
+        "infrastructure",
+        "research",
+        "catalog",
+        "sources",
+        "tags",
+        "provenance",
+        "audit"
+      ],
+      "status": "confirmed",
+      "last_checked": "2026-10-17",
+      "quality": "unverified",
+      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
+      "notes": "Central source catalog with topic tags, confidence/status, evidence and last-checked fields; research run logs are stored separately to avoid topic-specific silos."
+    },
+    {
+      "id": "regcheck-portugal-api",
+      "name": "RegCheck Portugal REST API",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/rest-api",
+      "platform": "api-documentation",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "matricula",
+        "plate-to-vehicle",
+        "regcheck",
+        "rest"
+      ],
+      "status": "confirmed-docs",
+      "last_checked": "2026-10-17",
+      "quality": "documentation-verified",
+      "evidence": "Official API guide fetched 2026-10-17; endpoint and Basic Auth schema documented.",
+      "notes": "Endpoint https://www.regcheck.org.uk/api/json.aspx/CheckPortugal/{RegistrationNumber}; returns JSON, one credit per successful lookup. Live authenticated query not yet run."
+    },
+    {
+      "id": "regcheck-portugal-test-plate",
+      "name": "RegCheck documented Portugal test registration",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/portugal",
+      "platform": "api-documentation",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "test-data",
+        "registration"
+      ],
+      "status": "confirmed-docs",
+      "last_checked": "2026-10-17",
+      "quality": "documentation-verified",
+      "evidence": "Official Portugal API documentation lists test plate 90-27-QL.",
+      "notes": "Use for integration smoke tests only; does not prove general plate coverage or VIN return."
+    },
+    {
+      "id": "tecalliance-tecdoc-webservice-official",
+      "name": "TecAlliance TecDoc Web Service",
+      "url": "https://www.tecalliance.net/products/cards/tecdoc-web-service",
+      "platform": "api-documentation",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "vin",
+        "vrm",
+        "oe",
+        "cross-reference"
+      ],
+      "status": "commercial",
+      "last_checked": "2026-10-17",
+      "quality": "official-product-page-verified",
+      "evidence": "Official TecAlliance product page fetched 2026-10-17.",
+      "notes": "Product page describes searches by vehicle details, VIN, VRM and OE part number. Commercial access/licensing and Portugal coverage remain to be confirmed."
+    },
+    {
+      "id": "landed-cost-engine",
+      "name": "JM delivered-cost calculator",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/landed-cost.js",
+      "platform": "jm-api-vault",
+      "topics": [
+        "parts-shopping",
+        "shipping",
+        "portugal",
+        "vat",
+        "customs",
+        "coupons",
+        "landed-cost",
+        "price-comparison",
+        "api"
+      ],
+      "status": "implemented-tested",
+      "last_checked": "2026-10-17",
+      "quality": "unit-tests-pending-latest-ci",
+      "evidence": "Pure function test suite added; protected endpoint POST /shopping/landed-cost added on feature branch.",
+      "notes": "Ranks verified delivered totals only when shipping, VAT/tax treatment, customs and coupon state are explicit. Unknown components remain null; never treat the lowest item price as the cheapest delivered offer."
+    },
+    {
+      "id": "telepecas-api-official",
+      "name": "TelePeças API",
+      "url": "https://api.telepecas.com/docs",
+      "platform": "api-documentation",
+      "topics": [
+        "parts-supplier-api",
+        "portugal",
+        "parts",
+        "oem",
+        "compatibility",
+        "stock",
+        "price",
+        "matricula",
+        "vin",
+        "free-api"
+      ],
+      "status": "adapter-implemented-live-auth-pending",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official TelePeças developer portal and API docs fetched 2026-10-17.",
+      "notes": "Official portal says APIs are free and offers sandbox/production; marketing page documents GET /v1/stock/search?q=... with Bearer token and claims stock search, OEM compatibility, plate/VIN, quotes/orders and webhooks. A protected JM adapter is implemented; live credentials and seller/integrator permissions still need verification."
+    },
+    {
+      "id": "carapi-portugal-plate-vin",
+      "name": "CarAPI.app Portugal plate-to-VIN",
+      "url": "https://carapi.app/docs/api/license-plate",
+      "platform": "api-documentation",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "matricula",
+        "plate-to-vin",
+        "vin",
+        "pricing"
+      ],
+      "status": "commercial-per-lookup",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official docs list PT as supported; official pricing page lists 10/100/500/1000 credit packages.",
+      "notes": "Claims year/make/model/VIN; $0.40 per lookup in 10 pack, $0.35 in 100 pack, $0.30 in 500 pack, $0.25 in 1000 pack. Test plate examples are documented for US/CA/UK, not Portugal. No free Portugal test confirmed."
+    },
+    {
+      "id": "ebay-browse-api",
+      "name": "eBay Browse API",
+      "url": "https://developer.ebay.com/develop/api/buy/browse_api",
+      "platform": "api-documentation",
+      "topics": [
+        "parts-shopping",
+        "global",
+        "parts",
+        "oem",
+        "reference",
+        "price",
+        "shipping",
+        "compatibility",
+        "oauth"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official eBay developer docs fetched 2026-10-17.",
+      "notes": "Search by keyword/GTIN/product/compatibility and check item-level compatibility. Application access token required; verify production eligibility, shipping to Portugal and any seller-side constraints."
+    },
+    {
+      "id": "serpapi-google-shopping-quota",
+      "name": "SerpApi Google Shopping API",
+      "url": "https://serpapi.com/google-shopping-api",
+      "platform": "api-documentation",
+      "topics": [
+        "parts-shopping",
+        "google-shopping",
+        "price-search",
+        "products",
+        "free-quota",
+        "api"
+      ],
+      "status": "commercial-with-free-quota",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official API docs and pricing search checked 2026-10-17.",
+      "notes": "Portugal localization and free-shipping filter supported; cached exact searches are free. Search results indicate 250 searches/month free and $25/month for 1,000 paid searches. Product listings still require independent shipping, tax, stock and checkout verification."
+    },
+    {
+      "id": "render-free-plan-limits",
+      "name": "Render Free service limitations",
+      "url": "https://render.com/docs/free",
+      "platform": "official-documentation",
+      "topics": [
+        "infrastructure",
+        "render",
+        "free-hosting",
+        "cold-start",
+        "limits",
+        "storage"
+      ],
+      "status": "official-limits-verified",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official Render Free docs fetched 2026-10-17.",
+      "notes": "15-minute idle spin-down, roughly one-minute cold start, ephemeral filesystem, 750 free instance-hours per workspace/month; free Postgres expires after 30 days. Prototype/testing only; not always-on production."
+    },
+    {
+      "id": "telepecas-stock-adapter",
+      "name": "JM TelePeças stock search adapter",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/telepecas-provider.js",
+      "platform": "jm-api-vault",
+      "topics": [
+        "parts-shopping",
+        "telepecas",
+        "parts",
+        "reference",
+        "stock",
+        "price",
+        "api",
+        "free-api"
+      ],
+      "status": "implemented-live-auth-pending",
+      "last_checked": "2026-10-17",
+      "quality": "mocked-tests-pending-latest-ci",
+      "evidence": "Adapter and mocked tests added on feature branch; not merged or live-authenticated.",
+      "notes": "Protected GET /shopping/telepecas?q=... with optional maxPrice. Requires TELEPECAS_API_TOKEN. Shipping, tax and delivered price remain unknown unless separately verified."
+    }
+  ]
+}
