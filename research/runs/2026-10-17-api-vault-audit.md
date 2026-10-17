@@ -15,14 +15,18 @@ Review deployed Render services, GitHub source, API route design, vehicle-identi
 
 ## Existing provider implementation
 - `api-vault/shopping-providers.js` contains SerpApi Google Shopping and Awin Promotions adapters, with short in-memory cache.
-- Google Shopping results still have unknown shipping/tax/coupon status and are not treated as a delivered-price quote. The new `landed-cost.js` engine and protected POST `/shopping/landed-cost` endpoint can calculate a total only when shipping, tax treatment, customs and coupon status are explicitly evidenced; otherwise the total remains null.
+- Google Shopping results still have unknown shipping/tax/coupon status and are not treated as a delivered-price quote. The new `landed-cost.js` engine and protected POST `/shopping/landed-cost` endpoint can calculate a total only when shipping, tax treatment, customs and coupon status are explicitly evidenced; otherwise the total remains null. CI confirmed 17 offline tests pass, including RegCheck adapter and delivered-cost tests.
 - Coupon normalizer sets `validation_status: "not_tested_at_checkout"`; the code explicitly treats feed offers as candidates.
 - Product search requires `SERPAPI_API_KEY`; coupon feed requires `AWIN_PUBLISHER_ID` and `AWIN_API_TOKEN`. Credential presence and live authenticated responses were not verifiable through the public endpoint during this audit.
 - The repository has an offline Node test suite under `api-vault/tests/`. CI passed the existing shopping-provider tests and the mocked RegCheck adapter tests. The landed-cost test suite has now been added and awaits the newest CI run.
 
 ## Automotive integration assessment
 - Auto.dev integration only decodes a supplied 17-character VIN. It does not solve Portuguese plate-to-VIN.
-- Matricula.co.pt / RegCheck official documentation was fetched and confirms a Portugal-specific `CheckPortugal` REST route using Basic Auth. The site states 10 free test credits, then €0.20 per successful lookup with a 100-credit minimum (€20). It returns vehicle identification fields, but VIN is not guaranteed; the new adapter explicitly reports `vin_status` instead of fabricating a VIN. Live authenticated lookup is not yet validated.
+- Matricula.co.pt / RegCheck official documentation confirms a Portugal-specific `CheckPortugal` REST route using Basic Auth. The site states 10 free test credits, then €0.20 per successful lookup with a 100-credit minimum (€20). It returns vehicle identification fields, but VIN is not guaranteed; the adapter explicitly reports `vin_status` instead of fabricating a VIN. Live authenticated lookup is not yet validated.
+- CarAPI.app official docs also list Portugal and claim plate-to-VIN; pricing is $0.40/lookup for 10 credits down to $0.25/lookup for 1,000. It is not a free option, and no free Portugal test plate was documented.
+- TelePeças official API portal claims free APIs and capabilities spanning stock, OEM compatibility, plate/VIN lookup, quotes/orders and webhooks. Access is OAuth2- and permission-gated; exact current endpoint/account capability must be confirmed. This is the first option to pursue for a no-subscription parts integration.
+- Auto.dev public Plate-to-VIN page is US-only and says Plate-to-VIN is not included in Free/Growth; it is not a Portugal registration solution.
+- eBay Browse API offers global listing search and item-level compatibility checks, but requires an application access token and production access verification. SerpApi offers broad Google Shopping discovery with a limited free quota, but neither source proves delivered price.
 - TecAlliance/TecDoc Web Service is the strongest catalogue candidate for vehicle-to-part linkage and OE/cross-reference data, but it is commercial/licensed; access and Portuguese coverage must be confirmed.
 - OfficeGest API v2, TelePeças API, Autodata Developer and supplier integrations remain in the knowledge base as candidates/targets; no live authenticated integration has been proven in this audit.
 - Priority supplier list: Autozitania, Create/Drive360, AleCarPecas/Auto Delta, MCoutinho. Request/verify official account-level API, EDI, feed or order access before scraping or implementing.
@@ -39,10 +43,10 @@ If any material component is unknown, do not rank the result as the cheapest ver
 ## Next validation gates
 1. Monitor /health cold starts; both endpoints returned HTTP 200 on a second probe after an initial 503.
 2. Test protected routes with a credential held only in the authorized secret store; never print the token.
-3. Run the new RegCheck adapter tests in CI alongside the existing shopping provider tests; add protected-route authentication tests.
-4. Verify SerpApi/Awin environment configuration using boolean status only; perform real provider requests only if the accounts/quotas allow.
+3. CI currently passes 17 offline tests, including the RegCheck adapter and delivered-cost calculator. Add route-level authentication tests before production merge.
+4. Verify SerpApi/Awin environment configuration using boolean status only; perform real provider requests only if the accounts/quotas allow. Check TelePeças developer/seller permissions before deciding whether SerpApi can be reduced or removed.
 5. Run the documented RegCheck test plate `90-27-QL` with a valid account, record returned fields and whether VIN is present, and validate one real OE reference with TecDoc/supplier evidence.
-6. Implement delivered-cost calculations only where shipping/tax evidence is available; otherwise retain unknown status.
+6. Delivered-cost calculator is implemented on the feature branch; live retailer shipping/tax/coupon evidence and checkout validation remain outstanding.
 
 
 ## Follow-up verification (2026-10-17)
@@ -50,4 +54,4 @@ If any material component is unknown, do not rank the result as the cheapest ver
 - Existing repository workflow uses `api-vault/tests/*.test.js`; an adapter test suite already exists at `api-vault/tests/shopping-providers.test.js`. CI must be re-run on this clean catalog branch before considering the documentation changes merged.
 - This catalog branch is isolated from the existing shopping-provider feature branch to avoid accidentally including unrelated commits in the PR.
 - Added `api-vault/vehicle-providers.js` and a protected `/auto/registration/:plate` route in the branch. It uses `REGCHECK_USERNAME` and `REGCHECK_API_KEY`, never returns provider error bodies, and explicitly leaves VIN unknown when absent. This has mocked unit tests; no production credentials were used.
-- The catalog and searchable knowledge now contain 101 records, including official RegCheck/Portugal documentation, TecDoc scope and the delivered-cost engine. Current PR: https://github.com/josemiraeanda-hue/tapo-privacy-widget/pull/4.
+- The catalog and searchable knowledge now contain 106 records, including official TelePeças, RegCheck, CarAPI, eBay, SerpApi, TecDoc and delivered-cost findings. Current PR: https://github.com/josemiraeanda-hue/tapo-privacy-widget/pull/4.
