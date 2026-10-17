@@ -54,3 +54,12 @@ test("ranks verified delivered totals before unverified advertised prices", () =
   assert.equal(offers[0].landed_cost.total_delivered_price_eur, 20);
   assert.equal(offers[1].landed_cost.landed_cost_status, "incomplete");
 });
+
+test("does not rank incomplete offers across different currencies", () => {
+  const offers = compareOffers([
+    { seller: "GBP offer", price_value: 20, currency: "GBP" },
+    { seller: "EUR offer", price_value: 25, currency: "EUR" }
+  ]);
+  assert.equal(offers[0].seller, "GBP offer");
+  assert.equal(offers[1].seller, "EUR offer");
+});
