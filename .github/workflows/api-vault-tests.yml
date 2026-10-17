@@ -25,11 +25,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
-          cache-dependency-path: api-vault/package-lock.json
       - name: Install dependencies
         working-directory: api-vault
-        run: npm ci
+        run: npm install
       - name: Run unit tests
         working-directory: api-vault
         run: npm test
