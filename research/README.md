@@ -33,7 +33,7 @@ A discovered voucher is not validated until checkout confirms its applicability.
 - Adult-content research is limited to legal content involving consenting adults. Do not deliberately search for, collect, store, or link to sexual abuse material or content involving minors.
 
 
-## Implemented in the catalog branch (not yet production)
+## Implemented API capabilities
 - Protected route: `GET /auto/registration/:plate`.
 - Provider: RegCheck Portugal REST endpoint (`CheckPortugal`).
 - Required Render environment variables: `REGCHECK_USERNAME`, `REGCHECK_API_KEY`. Keep these server-side; never put them in frontend code or the catalog.
@@ -60,8 +60,15 @@ A discovered voucher is not validated until checkout confirms its applicability.
 Auto.dev's public Plate-to-VIN page currently says the feature is for US plates and is not included in Free/Growth; do not use it as a Portugal registration decoder.
 
 
-## TelePeças adapter (feature branch)
+## TelePeças adapter
 - Protected route: `GET /shopping/telepecas?q=6Q0423155AA` with optional `maxPrice=100`.
 - Required Render environment variable: `TELEPECAS_API_TOKEN`. Obtain it from an authorized developer/seller account; do not use public example credentials found in documentation.
 - The public TelePeças API portal describes its APIs as free, but access depends on OAuth2 credentials and seller/integrator permissions; the account may have different quotas and data scopes.
 - Search results expose item/reference/advertised price/condition. They do not prove compatibility, shipping, VAT, or final delivered cost.
+
+
+## Cross-provider comparison
+- Protected route: `GET /shopping/compare?q=6Q0423155AA` with optional `maxPrice=100`.
+- Combines Google Shopping and TelePeças results where credentials are configured. If one provider is unavailable, it returns partial results and provider status; if both are unavailable, it returns a configuration error.
+- Verified delivered totals rank first. Incomplete offers are not compared across different currencies; unknown shipping, VAT/customs and checkout coupon status stays explicit.
+- The latest main-branch code has passed 27 offline tests. Render production is still on the prior successful deployment until the manual redeploy step is completed.
