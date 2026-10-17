@@ -5,6 +5,7 @@ const {searchProducts,getCoupons}=require("./shopping-providers");
 const {lookupPortugueseRegistration}=require("./vehicle-providers");
 const {compareOffers}=require("./landed-cost");
 const {searchTelepecas}=require("./telepecas-provider");
+const {compareShoppingSources}=require("./shopping-compare");
 const app=express();
 const VAULT_TOKEN=process.env.VAULT_TOKEN;
 const AUTO_DEV_API_KEY=process.env.AUTO_DEV_API_KEY;
@@ -103,6 +104,21 @@ app.post("/shopping/landed-cost",(req,res)=>{
   if(!Array.isArray(offers)||offers.length===0) return res.status(400).json({error:"offers must be a non-empty array"});
   if(offers.length>100) return res.status(400).json({error:"A maximum of 100 offers is allowed"});
   res.json({count:offers.length,results:compareOffers(offers),note:"Only offers with verified shipping, tax/customs treatment and coupon state receive a verified delivered total."});
+});
+
+app.get("/shopping/compare",async(req,res)=>{
+  try{
+    const result=await compareShoppingSources({
+      q:req.query.q,
+      maxPrice:req.query.maxPrice,
+      searchGoogle:({q,maxPrice})=>searchProducts({q,maxPrice}),
+      searchTelepecas:({q,maxPrice})=>searchTelepecas({q,maxPrice})
+    });
+    res.json(result);
+  }catch(e){
+    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
+    res.status(status).json({error:e.message||"Shopping comparison failed",providers:e.providers||undefined});
+  }
 });
 
 app.get("/shopping/telepecas",async(req,res)=>{
