@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "updated_at": "2026-10-17",
   "scope": "JM Beloura automotive knowledge",
   "rules": [
@@ -1374,6 +1374,25 @@
       ],
       "summary": "Official product page states searches by vehicle details, VIN, VRM or OE part number and links products to vehicles; licensing/access and Portuguese coverage still need confirmation.",
       "url": "https://www.tecalliance.net/products/cards/tecdoc-web-service"
+    },
+    {
+      "id": "landed-cost-engine",
+      "category": "parts-shopping",
+      "status": "implemented-tested",
+      "title": "JM delivered-cost calculator",
+      "tags": [
+        "parts",
+        "shipping",
+        "portugal",
+        "vat",
+        "customs",
+        "coupons",
+        "landed-cost",
+        "price-comparison",
+        "api"
+      ],
+      "summary": "Protected POST /shopping/landed-cost ranks offers with a verified delivered total only when shipping, tax treatment, customs and coupon state are explicit. Missing evidence leaves total null and records missing components.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/landed-cost.js"
     }
   ]
 }
