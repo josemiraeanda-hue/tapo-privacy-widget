@@ -1820,6 +1820,28 @@
       "quality": "official-product-page-verified",
       "evidence": "Official TecAlliance product page fetched 2026-10-17.",
       "notes": "Product page describes searches by vehicle details, VIN, VRM and OE part number. Commercial access/licensing and Portugal coverage remain to be confirmed."
+    },
+    {
+      "id": "landed-cost-engine",
+      "name": "JM delivered-cost calculator",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/landed-cost.js",
+      "platform": "jm-api-vault",
+      "topics": [
+        "parts-shopping",
+        "shipping",
+        "portugal",
+        "vat",
+        "customs",
+        "coupons",
+        "landed-cost",
+        "price-comparison",
+        "api"
+      ],
+      "status": "implemented-tested",
+      "last_checked": "2026-10-17",
+      "quality": "unit-tests-pending-latest-ci",
+      "evidence": "Pure function test suite added; protected endpoint POST /shopping/landed-cost added on feature branch.",
+      "notes": "Ranks verified delivered totals only when shipping, VAT/tax treatment, customs and coupon state are explicit. Unknown components remain null; never treat the lowest item price as the cheapest delivered offer."
     }
   ]
 }
