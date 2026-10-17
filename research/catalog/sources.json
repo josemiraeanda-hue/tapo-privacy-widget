@@ -1860,11 +1860,11 @@
         "vin",
         "free-api"
       ],
-      "status": "access-gated",
+      "status": "adapter-implemented-live-auth-pending",
       "last_checked": "2026-10-17",
       "quality": "official-docs-verified",
       "evidence": "Official TelePeças developer portal and API docs fetched 2026-10-17.",
-      "notes": "Portal says APIs are free and supports sandbox/production; OAuth2 and seller/integrator permissions required. Marketing page claims stock, OEM compatibility, plate/VIN, quotes/orders and webhooks. Confirm current endpoint for plate lookup and actual account permissions before integration."
+      "notes": "Official portal says APIs are free and offers sandbox/production; marketing page documents GET /v1/stock/search?q=... with Bearer token and claims stock search, OEM compatibility, plate/VIN, quotes/orders and webhooks. A protected JM adapter is implemented; live credentials and seller/integrator permissions still need verification."
     },
     {
       "id": "carapi-portugal-plate-vin",
@@ -1944,6 +1944,27 @@
       "quality": "official-docs-verified",
       "evidence": "Official Render Free docs fetched 2026-10-17.",
       "notes": "15-minute idle spin-down, roughly one-minute cold start, ephemeral filesystem, 750 free instance-hours per workspace/month; free Postgres expires after 30 days. Prototype/testing only; not always-on production."
+    },
+    {
+      "id": "telepecas-stock-adapter",
+      "name": "JM TelePeças stock search adapter",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/telepecas-provider.js",
+      "platform": "jm-api-vault",
+      "topics": [
+        "parts-shopping",
+        "telepecas",
+        "parts",
+        "reference",
+        "stock",
+        "price",
+        "api",
+        "free-api"
+      ],
+      "status": "implemented-live-auth-pending",
+      "last_checked": "2026-10-17",
+      "quality": "mocked-tests-pending-latest-ci",
+      "evidence": "Adapter and mocked tests added on feature branch; not merged or live-authenticated.",
+      "notes": "Protected GET /shopping/telepecas?q=... with optional maxPrice. Requires TELEPECAS_API_TOKEN. Shipping, tax and delivered price remain unknown unless separately verified."
     }
   ]
 }
