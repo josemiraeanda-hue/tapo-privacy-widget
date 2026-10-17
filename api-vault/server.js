@@ -3,9 +3,11 @@ const fs=require("fs");
 const path=require("path");
 const {searchProducts,getCoupons}=require("./shopping-providers");
 const {lookupPortugueseRegistration}=require("./vehicle-providers");
+const {compareOffers}=require("./landed-cost");
 const app=express();
 const VAULT_TOKEN=process.env.VAULT_TOKEN;
 const AUTO_DEV_API_KEY=process.env.AUTO_DEV_API_KEY;
+app.use(express.json({limit:"64kb"}));
 const KNOWLEDGE_PATH=path.join(__dirname,"knowledge.json");
 
 function loadKnowledge(){
@@ -93,6 +95,13 @@ app.get("/auto/vin/:vin",async(req,res)=>{
   }catch(e){
     res.status(502).json({error:"Auto.dev request failed"});
   }
+});
+
+app.post("/shopping/landed-cost",(req,res)=>{
+  const offers=req.body?.offers;
+  if(!Array.isArray(offers)||offers.length===0) return res.status(400).json({error:"offers must be a non-empty array"});
+  if(offers.length>100) return res.status(400).json({error:"A maximum of 100 offers is allowed"});
+  res.json({count:offers.length,results:compareOffers(offers),note:"Only offers with verified shipping, tax/customs treatment and coupon state receive a verified delivered total."});
 });
 
 app.get("/shopping/status",(req,res)=>res.json({
