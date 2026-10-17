@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-17",
+  "updated_at": "2026-10-18",
   "description": "Central tagged source catalog; candidates are not endorsements or verified integrations.",
   "sources": [
     {
@@ -1987,6 +1987,154 @@
       "quality": "27-offline-tests-passed",
       "evidence": "Combined provider helper and protected route added to main; CI run queued after latest commit.",
       "notes": "Combined comparison helper and protected route are committed to main and passed 27 offline tests. Production still needs a manual Render redeploy to pick up this latest code."
+    },
+    {
+      "id": "carsxe",
+      "name": "CarsXE vehicle data API",
+      "url": "https://docs.carsxe.com/docs/get-started",
+      "topics": [
+        "vehicle-identity",
+        "history",
+        "valuation"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Plate decoder, VIN specs, history, market value, recalls, images and lien/theft claims; explicitly test Portugal coverage and VIN availability before paying.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "carapi-plate",
+      "name": "CarAPI.app plate lookup",
+      "url": "https://carapi.app/pricing/license-plate/",
+      "topics": [
+        "vehicle-identity"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Published pricing $4/10, $35/100, $150/500, $250/1000. Check supported-country list for Portugal before purchase.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "officegest-api-v2",
+      "name": "OfficeGest API v2",
+      "url": "https://api.officegest.com/docs/officegest-api/v2",
+      "topics": [
+        "workshop-erp",
+        "invoicing",
+        "stock"
+      ],
+      "status": "account-access-pending",
+      "notes": "Official REST API v2 is experimental and may change; Bearer token. Confirm enabled modules/endpoints for customer, document, stock and accounting workflows.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "officegest-api-v1",
+      "name": "OfficeGest API v1",
+      "url": "https://api.officegest.com/docs/officegest-api/v1",
+      "topics": [
+        "workshop-erp"
+      ],
+      "status": "account-access-pending",
+      "notes": "Official original REST API using HTTP Basic Auth; verify endpoints and WebServices module with OfficeGest.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "officegest-webservices",
+      "name": "OfficeGest WebServices",
+      "url": "https://officegest.pt/webservices/",
+      "topics": [
+        "workshop-erp"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Official page describes REST integrations for entities, documents, stock, accounting and webhooks; module entitlement may be required.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "autodata-api",
+      "name": "Autodata API",
+      "url": "https://developer.autodata-group.com/io-docs",
+      "topics": [
+        "repair-data",
+        "maintenance"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Official API docs require an API key and customer integration contact. Retail plan does not automatically imply API rights.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "autodata-pricing",
+      "name": "Autodata Portugal pricing",
+      "url": "https://www.autodata-group.com/pt/comprar-autodata/",
+      "topics": [
+        "repair-data"
+      ],
+      "status": "commercial",
+      "notes": "Published workshop plans from £74/month service and maintenance or £127/month diagnostics/repair after introductory offer; API access separate to verify.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "tecdoc",
+      "name": "TecAlliance TecDoc Web Service",
+      "url": "https://www.tecalliance.net/tecdoc/",
+      "topics": [
+        "parts-catalogue",
+        "oe-cross-reference"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Key candidate for vehicle-to-parts, OE cross-references and fitment. Confirm license, Portugal coverage, limits and redistribution rights.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "teccom",
+      "name": "TecCom",
+      "url": "https://www.tecalliance.net/teccom/",
+      "topics": [
+        "parts-ordering",
+        "supplier-integration"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Explore supplier ordering, availability and order status; requires participating suppliers and commercial onboarding.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "regcheck-portugal",
+      "name": "RegCheck CheckPortugal",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/portugal",
+      "topics": [
+        "vehicle-identity",
+        "portugal-plate"
+      ],
+      "status": "paid-after-trial",
+      "notes": "Portugal-specific registration endpoint; 10 test credits and €0.20/successful lookup with 100-credit minimum previously documented. VIN not guaranteed.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
     }
   ]
 }
