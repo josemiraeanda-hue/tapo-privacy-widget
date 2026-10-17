@@ -31,3 +31,12 @@ A discovered voucher is not validated until checkout confirms its applicability.
 - Do not expose or log tokens.
 - Use public sources and authorized accounts only.
 - Adult-content research is limited to legal content involving consenting adults. Do not deliberately search for, collect, store, or link to sexual abuse material or content involving minors.
+
+
+## Implemented in the catalog branch (not yet production)
+- Protected route: `GET /auto/registration/:plate`.
+- Provider: RegCheck Portugal REST endpoint (`CheckPortugal`).
+- Required Render environment variables: `REGCHECK_USERNAME`, `REGCHECK_API_KEY`. Keep these server-side; never put them in frontend code or the catalog.
+- The provider is metered: the documentation advertises 10 free test credits and €0.20 per successful lookup after that, with a 100-credit minimum purchase. Do not claim this adapter is permanently free.
+- VIN is optional in the returned payload. If absent, the adapter returns `vin_status: "not_returned_by_provider"`; it must not guess a VIN.
+- The adapter has mocked unit tests. A real provider call requires valid account credentials and consumes a credit except for the provider's documented test registration.
