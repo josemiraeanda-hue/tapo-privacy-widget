@@ -1499,7 +1499,7 @@
     {
       "id": "shopping-compare-engine",
       "category": "parts-shopping",
-      "status": "implemented-unit-tests-pending-current-run",
+      "status": "main-ci-passed-pending-production-deploy",
       "title": "JM cross-provider shopping comparison",
       "tags": [
         "parts",
