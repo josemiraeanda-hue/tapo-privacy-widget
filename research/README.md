@@ -1,13 +1,20 @@
 # JM Vault — Research and Automotive Integrations
 
-Updated: 2026-10-17
+Updated: 2026-10-18
 
 ## Structure
 - `api-vault/knowledge.json`: searchable knowledge entries used by the protected API.
 - `research/catalog/sources.json`: central, tagged index of sources and integration leads.
 - `research/runs/`: dated audit logs and research results.
+- `research/MASTER_RESEARCH_PROMPT.md`: exhaustive research protocol covering all JM Beloura workflows.
+- `research/CREDENTIALS_AND_ACCESS_MATRIX.md`: current and candidate credentials, official links, costs, priorities and safe setup steps.
 - Keep source discovery in one catalog. Use tags, not separate topic silos.
 - Never store secret values, tokens, passwords, personal data, or private channel content here.
+
+## Current breadth
+- The source catalog has been expanded to include 138 entries across Portugal plate/VIN, repair data, OE/catalogue, supplier APIs, global shopping, delivered cost/coupons, tyres, retrofit, vehicle history, compliance, ERP and AI-assisted extraction.
+- The credential matrix distinguishes variables currently consumed by code from candidate variables not yet implemented. Do not create every candidate key; enable only a validated integration.
+- The exhaustive master prompt is the standard for future runs; research must continue past the initial shortlist and report blockers instead of declaring completion prematurely.
 
 ## Evidence statuses
 - `confirmed`: verified from authoritative source or working service, with scope stated.
