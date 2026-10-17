@@ -15,10 +15,10 @@ Review deployed Render services, GitHub source, API route design, vehicle-identi
 
 ## Existing provider implementation
 - `api-vault/shopping-providers.js` contains SerpApi Google Shopping and Awin Promotions adapters, with short in-memory cache.
-- Product result normalizer sets `total_delivered_price: null` and `delivery_price_status: "not_verified"`; it does not currently calculate a complete delivered price.
+- Google Shopping results still have unknown shipping/tax/coupon status and are not treated as a delivered-price quote. The new `landed-cost.js` engine and protected POST `/shopping/landed-cost` endpoint can calculate a total only when shipping, tax treatment, customs and coupon status are explicitly evidenced; otherwise the total remains null.
 - Coupon normalizer sets `validation_status: "not_tested_at_checkout"`; the code explicitly treats feed offers as candidates.
 - Product search requires `SERPAPI_API_KEY`; coupon feed requires `AWIN_PUBLISHER_ID` and `AWIN_API_TOKEN`. Credential presence and live authenticated responses were not verifiable through the public endpoint during this audit.
-- The repository has an offline Node test suite under `api-vault/tests/`. Existing shopping-provider tests pass in CI; a new mocked RegCheck adapter test suite has been added to the catalog branch and must be included in the latest CI run.
+- The repository has an offline Node test suite under `api-vault/tests/`. CI passed the existing shopping-provider tests and the mocked RegCheck adapter tests. The landed-cost test suite has now been added and awaits the newest CI run.
 
 ## Automotive integration assessment
 - Auto.dev integration only decodes a supplied 17-character VIN. It does not solve Portuguese plate-to-VIN.
@@ -50,4 +50,4 @@ If any material component is unknown, do not rank the result as the cheapest ver
 - Existing repository workflow uses `api-vault/tests/*.test.js`; an adapter test suite already exists at `api-vault/tests/shopping-providers.test.js`. CI must be re-run on this clean catalog branch before considering the documentation changes merged.
 - This catalog branch is isolated from the existing shopping-provider feature branch to avoid accidentally including unrelated commits in the PR.
 - Added `api-vault/vehicle-providers.js` and a protected `/auto/registration/:plate` route in the branch. It uses `REGCHECK_USERNAME` and `REGCHECK_API_KEY`, never returns provider error bodies, and explicitly leaves VIN unknown when absent. This has mocked unit tests; no production credentials were used.
-- The catalog and searchable knowledge now contain 100 records, including official RegCheck/Portugal documentation and TecDoc scope. Current PR: https://github.com/josemiraeanda-hue/tapo-privacy-widget/pull/4.
+- The catalog and searchable knowledge now contain 101 records, including official RegCheck/Portugal documentation, TecDoc scope and the delivered-cost engine. Current PR: https://github.com/josemiraeanda-hue/tapo-privacy-widget/pull/4.
