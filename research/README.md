@@ -40,3 +40,10 @@ A discovered voucher is not validated until checkout confirms its applicability.
 - The provider is metered: the documentation advertises 10 free test credits and €0.20 per successful lookup after that, with a 100-credit minimum purchase. Do not claim this adapter is permanently free.
 - VIN is optional in the returned payload. If absent, the adapter returns `vin_status: "not_returned_by_provider"`; it must not guess a VIN.
 - The adapter has mocked unit tests. A real provider call requires valid account credentials and consumes a credit except for the provider's documented test registration.
+
+
+## Delivered-cost comparison
+- Protected endpoint: `POST /shopping/landed-cost`, JSON body `{"offers":[...]}`.
+- Supports explicit item price in EUR or a verified FX conversion, shipping to Portugal, VAT/tax treatment, customs/import charges and coupon checkout status.
+- Only returns `landed_cost_status: "verified"` and a numeric `total_delivered_price_eur` when every material component has explicit evidence. Unknown shipping/tax/customs/coupon status yields `total_delivered_price_eur: null` and a list of missing components.
+- The Google Shopping adapter still cannot infer shipping or final VAT from an advertised item price. It remains a discovery source, not a verified delivered-price source.
