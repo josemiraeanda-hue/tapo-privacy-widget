@@ -43,10 +43,10 @@ If any material component is unknown, do not rank the result as the cheapest ver
 ## Next validation gates
 1. Monitor /health cold starts; both endpoints returned HTTP 200 on a second probe after an initial 503.
 2. Test protected routes with a credential held only in the authorized secret store; never print the token.
-3. CI currently passes 22 offline tests, including RegCheck, TelePeças and delivered-cost calculator tests. Add route-level authentication tests before production merge.
+3. GitHub Actions run 39060817757 passed 27 offline tests, including RegCheck, TelePeças, delivered-cost and combined comparison tests; syntax checks for all API modules passed. Add route-level authentication tests before further hardening.
 4. Verify SerpApi/Awin environment configuration using boolean status only; perform real provider requests only if the accounts/quotas allow. Check TelePeças developer/seller permissions before deciding whether SerpApi can be reduced or removed.
 5. Run the documented RegCheck test plate `90-27-QL` with a valid account, record returned fields and whether VIN is present, and validate one real OE reference with TecDoc/supplier evidence.
-6. Delivered-cost calculator is implemented on the feature branch; live retailer shipping/tax/coupon evidence and checkout validation remain outstanding.
+6. Delivered-cost calculator and cross-provider comparison are in main; live retailer shipping/tax/coupon evidence and checkout validation remain outstanding.
 
 
 ## Follow-up verification (2026-10-17)
@@ -54,4 +54,11 @@ If any material component is unknown, do not rank the result as the cheapest ver
 - Existing repository workflow uses `api-vault/tests/*.test.js`; an adapter test suite already exists at `api-vault/tests/shopping-providers.test.js`. CI must be re-run on this clean catalog branch before considering the documentation changes merged.
 - This catalog branch is isolated from the existing shopping-provider feature branch to avoid accidentally including unrelated commits in the PR.
 - Added `api-vault/vehicle-providers.js` and a protected `/auto/registration/:plate` route in the branch. It uses `REGCHECK_USERNAME` and `REGCHECK_API_KEY`, never returns provider error bodies, and explicitly leaves VIN unknown when absent. This has mocked unit tests; no production credentials were used.
-- The catalog and searchable knowledge now contain 107 records, including official TelePeças, RegCheck, CarAPI, eBay, SerpApi, TecDoc and delivered-cost findings. The TelePeças adapter and tests are on the feature branch. Current PR: https://github.com/josemiraeanda-hue/tapo-privacy-widget/pull/4.
+- The main repository catalog and searchable knowledge now contain 108 records, including official TelePeças, RegCheck, CarAPI, eBay, SerpApi, TecDoc, delivered-cost and cross-provider comparison findings. PR #4 was merged; current main is https://github.com/josemiraeanda-hue/tapo-privacy-widget.
+
+
+## Deployment follow-up (2026-10-17)
+- Commit 93ca81ae4a862bacaf5c3b3bc72d3a3891c17bec deployed successfully to Render production; build succeeded, server started, and `/health` returned `{"status":"ok"}`.
+- Unauthenticated requests to `/shopping/telepecas`, `/auto/registration` and `/shopping/status` returned 404, consistent with the existing Bearer-token gate.
+- Current main has additional combined-comparison code and tests after that deployed commit. GitHub Actions passed 27 tests, but a follow-up Render deploy request was blocked. Production must be manually redeployed from Render to pick up the latest main commit.
+- Live authenticated provider calls are not yet verified because the existing Vault token cannot be read through the available integration and provider account credentials are not available to this session. Do not expose secrets in chat.
