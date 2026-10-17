@@ -15,7 +15,7 @@ Review deployed Render services, GitHub source, API route design, vehicle-identi
 
 ## Existing provider implementation
 - `api-vault/shopping-providers.js` contains SerpApi Google Shopping and Awin Promotions adapters, with short in-memory cache.
-- Google Shopping results still have unknown shipping/tax/coupon status and are not treated as a delivered-price quote. The new `landed-cost.js` engine and protected POST `/shopping/landed-cost` endpoint can calculate a total only when shipping, tax treatment, customs and coupon status are explicitly evidenced; otherwise the total remains null. CI previously confirmed 17 offline tests pass, including RegCheck adapter and delivered-cost tests. TelePeças adapter tests have now been added and are awaiting the newest CI result.
+- Google Shopping results still have unknown shipping/tax/coupon status and are not treated as a delivered-price quote. The new `landed-cost.js` engine and protected POST `/shopping/landed-cost` endpoint can calculate a total only when shipping, tax treatment, customs and coupon status are explicitly evidenced; otherwise the total remains null. CI run 39060658810 passed all 22 offline tests, including the RegCheck adapter, delivered-cost calculator and TelePeças stock adapter tests.
 - Coupon normalizer sets `validation_status: "not_tested_at_checkout"`; the code explicitly treats feed offers as candidates.
 - Product search requires `SERPAPI_API_KEY`; coupon feed requires `AWIN_PUBLISHER_ID` and `AWIN_API_TOKEN`. Credential presence and live authenticated responses were not verifiable through the public endpoint during this audit.
 - The repository has an offline Node test suite under `api-vault/tests/`. CI passed the existing shopping-provider tests and the mocked RegCheck adapter tests. The landed-cost test suite has now been added and awaits the newest CI run.
@@ -43,7 +43,7 @@ If any material component is unknown, do not rank the result as the cheapest ver
 ## Next validation gates
 1. Monitor /health cold starts; both endpoints returned HTTP 200 on a second probe after an initial 503.
 2. Test protected routes with a credential held only in the authorized secret store; never print the token.
-3. CI currently passes 17 offline tests, including the RegCheck adapter and delivered-cost calculator. Add route-level authentication tests before production merge.
+3. CI currently passes 22 offline tests, including RegCheck, TelePeças and delivered-cost calculator tests. Add route-level authentication tests before production merge.
 4. Verify SerpApi/Awin environment configuration using boolean status only; perform real provider requests only if the accounts/quotas allow. Check TelePeças developer/seller permissions before deciding whether SerpApi can be reduced or removed.
 5. Run the documented RegCheck test plate `90-27-QL` with a valid account, record returned fields and whether VIN is present, and validate one real OE reference with TecDoc/supplier evidence.
 6. Delivered-cost calculator is implemented on the feature branch; live retailer shipping/tax/coupon evidence and checkout validation remain outstanding.
