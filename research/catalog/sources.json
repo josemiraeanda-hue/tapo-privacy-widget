@@ -1842,6 +1842,108 @@
       "quality": "unit-tests-pending-latest-ci",
       "evidence": "Pure function test suite added; protected endpoint POST /shopping/landed-cost added on feature branch.",
       "notes": "Ranks verified delivered totals only when shipping, VAT/tax treatment, customs and coupon state are explicit. Unknown components remain null; never treat the lowest item price as the cheapest delivered offer."
+    },
+    {
+      "id": "telepecas-api-official",
+      "name": "TelePeças API",
+      "url": "https://api.telepecas.com/docs",
+      "platform": "api-documentation",
+      "topics": [
+        "parts-supplier-api",
+        "portugal",
+        "parts",
+        "oem",
+        "compatibility",
+        "stock",
+        "price",
+        "matricula",
+        "vin",
+        "free-api"
+      ],
+      "status": "access-gated",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official TelePeças developer portal and API docs fetched 2026-10-17.",
+      "notes": "Portal says APIs are free and supports sandbox/production; OAuth2 and seller/integrator permissions required. Marketing page claims stock, OEM compatibility, plate/VIN, quotes/orders and webhooks. Confirm current endpoint for plate lookup and actual account permissions before integration."
+    },
+    {
+      "id": "carapi-portugal-plate-vin",
+      "name": "CarAPI.app Portugal plate-to-VIN",
+      "url": "https://carapi.app/docs/api/license-plate",
+      "platform": "api-documentation",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "matricula",
+        "plate-to-vin",
+        "vin",
+        "pricing"
+      ],
+      "status": "commercial-per-lookup",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official docs list PT as supported; official pricing page lists 10/100/500/1000 credit packages.",
+      "notes": "Claims year/make/model/VIN; $0.40 per lookup in 10 pack, $0.35 in 100 pack, $0.30 in 500 pack, $0.25 in 1000 pack. Test plate examples are documented for US/CA/UK, not Portugal. No free Portugal test confirmed."
+    },
+    {
+      "id": "ebay-browse-api",
+      "name": "eBay Browse API",
+      "url": "https://developer.ebay.com/develop/api/buy/browse_api",
+      "platform": "api-documentation",
+      "topics": [
+        "parts-shopping",
+        "global",
+        "parts",
+        "oem",
+        "reference",
+        "price",
+        "shipping",
+        "compatibility",
+        "oauth"
+      ],
+      "status": "candidate",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official eBay developer docs fetched 2026-10-17.",
+      "notes": "Search by keyword/GTIN/product/compatibility and check item-level compatibility. Application access token required; verify production eligibility, shipping to Portugal and any seller-side constraints."
+    },
+    {
+      "id": "serpapi-google-shopping-quota",
+      "name": "SerpApi Google Shopping API",
+      "url": "https://serpapi.com/google-shopping-api",
+      "platform": "api-documentation",
+      "topics": [
+        "parts-shopping",
+        "google-shopping",
+        "price-search",
+        "products",
+        "free-quota",
+        "api"
+      ],
+      "status": "commercial-with-free-quota",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official API docs and pricing search checked 2026-10-17.",
+      "notes": "Portugal localization and free-shipping filter supported; cached exact searches are free. Search results indicate 250 searches/month free and $25/month for 1,000 paid searches. Product listings still require independent shipping, tax, stock and checkout verification."
+    },
+    {
+      "id": "render-free-plan-limits",
+      "name": "Render Free service limitations",
+      "url": "https://render.com/docs/free",
+      "platform": "official-documentation",
+      "topics": [
+        "infrastructure",
+        "render",
+        "free-hosting",
+        "cold-start",
+        "limits",
+        "storage"
+      ],
+      "status": "official-limits-verified",
+      "last_checked": "2026-10-17",
+      "quality": "official-docs-verified",
+      "evidence": "Official Render Free docs fetched 2026-10-17.",
+      "notes": "15-minute idle spin-down, roughly one-minute cold start, ephemeral filesystem, 750 free instance-hours per workspace/month; free Postgres expires after 30 days. Prototype/testing only; not always-on production."
     }
   ]
 }
