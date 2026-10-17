@@ -1982,11 +1982,11 @@
         "customs",
         "coupons"
       ],
-      "status": "implemented-unit-tests-pending-current-run",
+      "status": "main-ci-passed-pending-production-deploy",
       "last_checked": "2026-10-17",
-      "quality": "offline-tests-pending-current-run",
+      "quality": "27-offline-tests-passed",
       "evidence": "Combined provider helper and protected route added to main; CI run queued after latest commit.",
-      "notes": "Protected GET /shopping/compare?q=... combines Google Shopping discovery and TelePeças stock search when configured. Partial results are allowed; unknown shipping/tax/customs/coupon data stays incomplete."
+      "notes": "Combined comparison helper and protected route are committed to main and passed 27 offline tests. Production still needs a manual Render redeploy to pick up this latest code."
     }
   ]
 }
