@@ -2255,6 +2255,185 @@
       "last_checked": "2026-10-18",
       "quality": "unverified",
       "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "carsxe-plate",
+      "name": "CarsXE plate decoder",
+      "url": "https://docs.carsxe.com/api-reference/plate-decoder/license-plate-decoder-v2",
+      "topics": [
+        "portugal-plate",
+        "vin"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Official docs state 60+ countries, but country response varies. Explicitly test Portuguese plate and VIN fields before buying credits.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "carapi-vehicle",
+      "name": "CarAPI.app vehicle API",
+      "url": "https://carapi.app/pricing/",
+      "topics": [
+        "vehicle-identity",
+        "vin"
+      ],
+      "status": "commercial-us-focused",
+      "notes": "Published annual plans start at $199/year; broad catalog is mainly US market. Not first choice for Portuguese trim/engine identification.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "amazon-paapi",
+      "name": "Amazon Product Advertising API",
+      "url": "https://webservices.amazon.com/paapi5/documentation/",
+      "topics": [
+        "shopping",
+        "accessories"
+      ],
+      "status": "eligibility-required",
+      "notes": "Potential accessory discovery; eligibility and marketplace access apply. Not a substitute for automotive parts catalog or supplier stock.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "openai-platform",
+      "name": "OpenAI API",
+      "url": "https://platform.openai.com/docs/",
+      "topics": [
+        "ai-enrichment",
+        "document-extraction"
+      ],
+      "status": "usage-billed",
+      "notes": "Optional structured extraction/ranking of supplier offers and documentation; separate API billing, not included in ChatGPT subscription.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "google-gemini",
+      "name": "Google Gemini API",
+      "url": "https://ai.google.dev/gemini-api/docs",
+      "topics": [
+        "ai-enrichment"
+      ],
+      "status": "free-tier-limited",
+      "notes": "Possible second-model extraction/classification; check current quotas and data terms before sending supplier/customer data.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "xai-api",
+      "name": "xAI API",
+      "url": "https://docs.x.ai/",
+      "topics": [
+        "ai-enrichment",
+        "research"
+      ],
+      "status": "usage-billed-candidate",
+      "notes": "Optional model-based classification/research; not required for core deterministic integrations.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "ipma",
+      "name": "IPMA open data",
+      "url": "https://api.ipma.pt/",
+      "topics": [
+        "operations",
+        "weather"
+      ],
+      "status": "public-api",
+      "notes": "Official Portugal weather data for workshop scheduling and forecast workflows; not vehicle data.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "imt",
+      "name": "IMT Portugal",
+      "url": "https://www.imt-ip.pt/",
+      "topics": [
+        "vehicle-compliance",
+        "homologation"
+      ],
+      "status": "public-portal-no-general-api-confirmed",
+      "notes": "Homologation, technical approvals, legalisation and inspection guidance; do not assume unrestricted plate lookup API.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "at-financas",
+      "name": "Autoridade Tributária e Aduaneira",
+      "url": "https://www.portaldasfinancas.gov.pt/",
+      "topics": [
+        "vat",
+        "import-compliance"
+      ],
+      "status": "public-portal-no-general-api-confirmed",
+      "notes": "Official tax/VAT/import compliance research; no arbitrary public vehicle-registration API assumed.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "asf",
+      "name": "ASF Portugal",
+      "url": "https://www.asf.com.pt/",
+      "topics": [
+        "insurance",
+        "compliance"
+      ],
+      "status": "public-portal-no-general-api-confirmed",
+      "notes": "Insurance-sector regulator; verify official public checks and legal access before automation.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "irn",
+      "name": "IRN Portugal",
+      "url": "https://irn.justica.gov.pt/",
+      "topics": [
+        "company-registry",
+        "compliance"
+      ],
+      "status": "public-portal-no-general-api-confirmed",
+      "notes": "Company/legal registry information, not vehicle VIN/parts data.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "google-maps-platform",
+      "name": "Google Maps Platform",
+      "url": "https://developers.google.com/maps",
+      "topics": [
+        "supplier-logistics",
+        "routing"
+      ],
+      "status": "paid-usage",
+      "notes": "Could support supplier distance and route estimates; production billing applies, not a free unlimited solution.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider page identified; scope, account access and costs still need validation."
     }
   ]
 }
