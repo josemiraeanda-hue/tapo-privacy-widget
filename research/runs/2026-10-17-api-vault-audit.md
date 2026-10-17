@@ -1,0 +1,45 @@
+# JM API Vault audit — 2026-10-17
+
+## Scope
+Review deployed Render services, GitHub source, API route design, vehicle-identification candidates, shopping/coupon providers, and free-hosting constraints. Website work intentionally deferred.
+
+## Infrastructure findings (observed)
+- GitHub repository: https://github.com/josemiraeanda-hue/tapo-privacy-widget
+- Main service: https://jm-api-vault.onrender.com (Render Free, Frankfurt, branch main, auto-deploy on commit).
+- Staging service: https://jm-api-vault-shopping-staging.onrender.com (Render Free, Frankfurt, branch feat/shopping-coupons-providers, auto-deploy disabled).
+- Main deployment record shows last live deployment on 2026-10-13, commit cdb9b4f ("Enable shopping provider integration"), build/deploy marked successful by Render.
+- Staging deployment record shows a successful deploy on 2026-10-13; most recent commit listed is 17bcc27 ("Remove temporary staging diagnostic route after validation").
+- Both public /health URLs returned HTTP 503 from an external live fetch during this audit (2026-10-17). Therefore neither service is considered externally healthy until a subsequent successful request is captured. Render metadata says not suspended; logs show app startup completed previously. Root cause is not yet proven.
+- Current service source has /health, token-protected knowledge routes, /auto/vin/:vin, /shopping/status, /shopping/products and /shopping/coupons.
+- /health is outside authentication middleware; other routes require Authorization: Bearer VAULT_TOKEN. Do not expose token to client code.
+
+## Existing provider implementation
+- `api-vault/shopping-providers.js` contains SerpApi Google Shopping and Awin Promotions adapters, with short in-memory cache.
+- Product result normalizer sets `total_delivered_price: null` and `delivery_price_status: "not_verified"`; it does not currently calculate a complete delivered price.
+- Coupon normalizer sets `validation_status: "not_tested_at_checkout"`; the code explicitly treats feed offers as candidates.
+- Product search requires `SERPAPI_API_KEY`; coupon feed requires `AWIN_PUBLISHER_ID` and `AWIN_API_TOKEN`. Credential presence and live authenticated responses were not verifiable through the public endpoint during this audit.
+- No test file was found at `api-vault/server.test.js`. A repository-level automated test suite has not yet been confirmed.
+
+## Automotive integration assessment
+- Auto.dev integration only decodes a supplied 17-character VIN. It does not solve Portuguese plate-to-VIN.
+- Matricula.co.pt remains a candidate for Portugal plate-to-VIN. Earlier working notes recorded 10 free queries then €0.20/query and a 100-query minimum (€20); current terms and actual API response still need revalidation before use.
+- TecAlliance/TecDoc Web Service is the strongest catalogue candidate for vehicle-to-part linkage and OE/cross-reference data, but it is commercial/licensed; access and Portuguese coverage must be confirmed.
+- OfficeGest API v2, TelePeças API, Autodata Developer and supplier integrations remain in the knowledge base as candidates/targets; no live authenticated integration has been proven in this audit.
+- Priority supplier list: Autozitania, Create/Drive360, AleCarPecas/Auto Delta, MCoutinho. Request/verify official account-level API, EDI, feed or order access before scraping or implementing.
+
+## Cost comparison requirements
+Every offer should capture: queried reference and exact fitment, OEM/aftermarket identity, seller, stock proof, source URL, timestamp, currency, item price, VAT treatment, shipping to Portugal, customs/import charges where applicable, coupon eligibility/checkout result, delivery estimate and final delivered total.
+If any material component is unknown, do not rank the result as the cheapest verified offer; label it estimated or incomplete.
+
+## Free-hosting decision
+- Keep the existing Render Free services while testing because they already exist and the project is small.
+- Do not migrate solely on the assumption that another provider is permanently free. Free tiers can sleep, cap hours/egress, remove persistence, or change terms.
+- Avoid introducing a database/Redis dependency until a concrete persistence need is established. Current in-memory caches are ephemeral and do not persist across restarts.
+
+## Next validation gates
+1. Resolve the observed HTTP 503 on both /health endpoints and repeat external probes.
+2. Test protected routes with a credential held only in the authorized secret store; never print the token.
+3. Add automated tests for missing query, invalid VIN, authentication, provider error handling, price normalization, and coupon status.
+4. Verify SerpApi/Awin environment configuration using boolean status only; perform real provider requests only if the accounts/quotas allow.
+5. Validate a real Portuguese plate-to-VIN test case and one real OE reference with TecDoc/supplier evidence.
+6. Implement delivered-cost calculations only where shipping/tax evidence is available; otherwise retain unknown status.
