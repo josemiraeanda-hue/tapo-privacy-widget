@@ -126,8 +126,8 @@
     },
     {
       "id": "matricula-co-pt",
-      "name": "Matricula.co.pt",
-      "url": null,
+      "name": "Matricula.co.pt / RegCheck Portugal plate lookup",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/portugal",
       "platform": "vehicle-identification",
       "topics": [
         "vehicle-identification",
@@ -136,11 +136,11 @@
         "portugal",
         "vin"
       ],
-      "status": "candidate",
+      "status": "confirmed-docs",
       "last_checked": "2026-10-17",
-      "quality": "unverified",
-      "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
-      "notes": "Portuguese plate-to-vehicle candidate; coverage/terms need revalidation."
+      "quality": "documentation-verified",
+      "evidence": "Official Portugal-specific API documentation and REST API guide fetched 2026-10-17.",
+      "notes": "CheckPortugal REST route documented; Basic Auth username + API key. Site advertises 10 free test credits then €0.20 per successful lookup, minimum 100 credits. VIN is not guaranteed in the documented Portugal response."
     },
     {
       "id": "open-labor-project",
@@ -1765,6 +1765,61 @@
       "quality": "unverified",
       "evidence": "Existing JM Vault knowledge entry or public source lead; revalidate before operational use.",
       "notes": "Central source catalog with topic tags, confidence/status, evidence and last-checked fields; research run logs are stored separately to avoid topic-specific silos."
+    },
+    {
+      "id": "regcheck-portugal-api",
+      "name": "RegCheck Portugal REST API",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/rest-api",
+      "platform": "api-documentation",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "matricula",
+        "plate-to-vehicle",
+        "regcheck",
+        "rest"
+      ],
+      "status": "confirmed-docs",
+      "last_checked": "2026-10-17",
+      "quality": "documentation-verified",
+      "evidence": "Official API guide fetched 2026-10-17; endpoint and Basic Auth schema documented.",
+      "notes": "Endpoint https://www.regcheck.org.uk/api/json.aspx/CheckPortugal/{RegistrationNumber}; returns JSON, one credit per successful lookup. Live authenticated query not yet run."
+    },
+    {
+      "id": "regcheck-portugal-test-plate",
+      "name": "RegCheck documented Portugal test registration",
+      "url": "https://www.matricula.co.pt/data/api-docs.aspx/portugal",
+      "platform": "api-documentation",
+      "topics": [
+        "vehicle-identification",
+        "portugal",
+        "test-data",
+        "registration"
+      ],
+      "status": "confirmed-docs",
+      "last_checked": "2026-10-17",
+      "quality": "documentation-verified",
+      "evidence": "Official Portugal API documentation lists test plate 90-27-QL.",
+      "notes": "Use for integration smoke tests only; does not prove general plate coverage or VIN return."
+    },
+    {
+      "id": "tecalliance-tecdoc-webservice-official",
+      "name": "TecAlliance TecDoc Web Service",
+      "url": "https://www.tecalliance.net/products/cards/tecdoc-web-service",
+      "platform": "api-documentation",
+      "topics": [
+        "parts",
+        "tecdoc",
+        "vin",
+        "vrm",
+        "oe",
+        "cross-reference"
+      ],
+      "status": "commercial",
+      "last_checked": "2026-10-17",
+      "quality": "official-product-page-verified",
+      "evidence": "Official TecAlliance product page fetched 2026-10-17.",
+      "notes": "Product page describes searches by vehicle details, VIN, VRM and OE part number. Commercial access/licensing and Portugal coverage remain to be confirmed."
     }
   ]
 }
