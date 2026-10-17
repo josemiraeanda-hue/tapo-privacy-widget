@@ -2,6 +2,7 @@ const express=require("express");
 const fs=require("fs");
 const path=require("path");
 const {searchProducts,getCoupons}=require("./shopping-providers");
+const {lookupPortugueseRegistration}=require("./vehicle-providers");
 const app=express();
 const VAULT_TOKEN=process.env.VAULT_TOKEN;
 const AUTO_DEV_API_KEY=process.env.AUTO_DEV_API_KEY;
@@ -67,6 +68,16 @@ app.get("/knowledge/item/:id",(req,res)=>{
   const item=kb.entries.find(e=>e.id===req.params.id);
   if(!item) return res.status(404).json({error:"Knowledge item not found"});
   res.json(item);
+});
+
+app.get("/auto/registration/:plate",async(req,res)=>{
+  try{
+    const result=await lookupPortugueseRegistration({plate:req.params.plate});
+    res.json(result);
+  }catch(e){
+    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
+    res.status(status).json({error:e.message||"Portuguese registration lookup failed"});
+  }
 });
 
 app.get("/auto/vin/:vin",async(req,res)=>{
