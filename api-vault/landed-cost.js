@@ -60,8 +60,11 @@ function compareOffers(offers = []) {
       const bVerified = b.landed_cost.landed_cost_status === "verified";
       if (aVerified !== bVerified) return aVerified ? -1 : 1;
       if (aVerified && bVerified) return a.landed_cost.total_delivered_price_eur - b.landed_cost.total_delivered_price_eur;
-      const aPrice = Number.isFinite(a.price_value) ? a.price_value : Number.POSITIVE_INFINITY;
-      const bPrice = Number.isFinite(b.price_value) ? b.price_value : Number.POSITIVE_INFINITY;
+      const aCurrency = String(a.currency || "").toUpperCase();
+      const bCurrency = String(b.currency || "").toUpperCase();
+      if (aCurrency !== bCurrency) return 0;
+      const aPrice = Number.isFinite(a.item_price_eur) ? a.item_price_eur : Number.isFinite(a.price_value) ? a.price_value : Number.POSITIVE_INFINITY;
+      const bPrice = Number.isFinite(b.item_price_eur) ? b.item_price_eur : Number.isFinite(b.price_value) ? b.price_value : Number.POSITIVE_INFINITY;
       return aPrice - bPrice;
     });
 }
