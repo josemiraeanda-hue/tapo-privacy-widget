@@ -2135,6 +2135,126 @@
       "last_checked": "2026-10-18",
       "quality": "documented",
       "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "vdim-tire-fitment",
+      "name": "VDIM Tire & Wheel Fitment API",
+      "url": "https://tire.vdim.app/api/docs",
+      "topics": [
+        "tyres",
+        "fitment"
+      ],
+      "status": "free-limited",
+      "notes": "As of Sep 2026 free tier: 250 tire-fitment lookups/month plus one-time 250 bonus; VIN/reverse lookup have separate smaller quotas. Respect terms against bulk harvesting.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "ebay-browse",
+      "name": "eBay Browse API",
+      "url": "https://developer.ebay.com/api-docs/buy/browse/overview.html",
+      "topics": [
+        "global-parts-shopping",
+        "compatibility"
+      ],
+      "status": "developer-access-required",
+      "notes": "Listing search and compatibility; requires application token. Compatibility is marketplace/category-limited; verify shipping to Portugal per listing.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "carvertical-business",
+      "name": "carVertical business API",
+      "url": "https://www.carvertical.com/en/business/api",
+      "topics": [
+        "vehicle-history",
+        "resale"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Custom business API for VIN decode and history reports; request quote and confirm report rights, Portugal coverage and source scope.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "serpapi-shopping",
+      "name": "SerpApi Google Shopping",
+      "url": "https://serpapi.com/google-shopping-api",
+      "topics": [
+        "global-parts-shopping",
+        "price-discovery"
+      ],
+      "status": "free-quota-candidate",
+      "notes": "JM adapter uses SERPAPI_API_KEY. Discovery prices do not prove fitment, stock, shipping, VAT or coupon success.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "awin-api",
+      "name": "Awin affiliate API",
+      "url": "https://developer.awin.com/",
+      "topics": [
+        "coupons",
+        "affiliate"
+      ],
+      "status": "account-approval-required",
+      "notes": "Affiliate API/feeds may expose advertiser offers and voucher terms after approval. Not a neutral whole-market price source.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "nhtsa-vpic",
+      "name": "NHTSA vPIC API",
+      "url": "https://vpic.nhtsa.dot.gov/api/",
+      "topics": [
+        "vin",
+        "vehicle-identity"
+      ],
+      "status": "free-limited-geography",
+      "notes": "Free public VIN decode primarily from US manufacturer submissions; fallback only, not definitive European trim/engine identification.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "nhtsa-recalls",
+      "name": "NHTSA recalls and datasets",
+      "url": "https://www.nhtsa.gov/nhtsa-datasets-and-apis",
+      "topics": [
+        "recalls",
+        "vehicle-safety"
+      ],
+      "status": "free-limited-geography",
+      "notes": "US-focused recalls; supplement only for US-market/import vehicles, not comprehensive EU VIN recall coverage.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "documented",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
+    },
+    {
+      "id": "carvertical-history",
+      "name": "carVertical vehicle history",
+      "url": "https://www.carvertical.com/",
+      "topics": [
+        "vehicle-history",
+        "used-vehicle-sales"
+      ],
+      "status": "commercial-candidate",
+      "notes": "Retail reports differ from business API; compare business quotes, consent and report rights.",
+      "platform": "official-web",
+      "last_checked": "2026-10-18",
+      "quality": "unverified",
+      "evidence": "Official provider documentation identified; account and scope still need validation."
     }
   ]
 }
