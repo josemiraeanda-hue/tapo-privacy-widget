@@ -9,7 +9,7 @@ Review deployed Render services, GitHub source, API route design, vehicle-identi
 - Staging service: https://jm-api-vault-shopping-staging.onrender.com (Render Free, Frankfurt, branch feat/shopping-coupons-providers, auto-deploy disabled).
 - Main deployment record shows last live deployment on 2026-10-13, commit cdb9b4f ("Enable shopping provider integration"), build/deploy marked successful by Render.
 - Staging deployment record shows a successful deploy on 2026-10-13; most recent commit listed is 17bcc27 ("Remove temporary staging diagnostic route after validation").
-- Both public /health URLs returned HTTP 503 from an external live fetch during this audit (2026-10-17). Therefore neither service is considered externally healthy until a subsequent successful request is captured. Render metadata says not suspended; logs show app startup completed previously. Root cause is not yet proven.
+- First external probe returned HTTP 503 for both public /health URLs; a second fresh probe returned HTTP 200 with {\"status\":\"ok\"} for both services. Current evidence is consistent with Render Free cold-start/sleep behavior, not a persistent application crash. Repeat monitoring is still needed to distinguish intermittent startup from other transient failures.
 - Current service source has /health, token-protected knowledge routes, /auto/vin/:vin, /shopping/status, /shopping/products and /shopping/coupons.
 - /health is outside authentication middleware; other routes require Authorization: Bearer VAULT_TOKEN. Do not expose token to client code.
 
@@ -43,3 +43,9 @@ If any material component is unknown, do not rank the result as the cheapest ver
 4. Verify SerpApi/Awin environment configuration using boolean status only; perform real provider requests only if the accounts/quotas allow.
 5. Validate a real Portuguese plate-to-VIN test case and one real OE reference with TecDoc/supplier evidence.
 6. Implement delivered-cost calculations only where shipping/tax evidence is available; otherwise retain unknown status.
+
+
+## Follow-up verification (2026-10-17)
+- Both health endpoints recovered on the second live probe: HTTP 200, JSON `{"status":"ok"}`. Render Free services spin down after idle time and can take about a minute to restart; see https://render.com/docs/free. A single 503 should not be treated as a confirmed outage, but the cold-start delay is a user-facing limitation.
+- Existing repository workflow uses `api-vault/tests/*.test.js`; an adapter test suite already exists at `api-vault/tests/shopping-providers.test.js`. CI must be re-run on this clean catalog branch before considering the documentation changes merged.
+- This catalog branch is isolated from the existing shopping-provider feature branch to avoid accidentally including unrelated commits in the PR.
