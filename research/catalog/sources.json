@@ -1824,7 +1824,7 @@
     {
       "id": "landed-cost-engine",
       "name": "JM delivered-cost calculator",
-      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/landed-cost.js",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/landed-cost.js",
       "platform": "jm-api-vault",
       "topics": [
         "parts-shopping",
@@ -1837,11 +1837,11 @@
         "price-comparison",
         "api"
       ],
-      "status": "implemented-tested",
+      "status": "deployed-unit-tested-live-data-pending",
       "last_checked": "2026-10-17",
-      "quality": "unit-tests-pending-latest-ci",
+      "quality": "unit-tested",
       "evidence": "Pure function test suite added; protected endpoint POST /shopping/landed-cost added on feature branch.",
-      "notes": "Ranks verified delivered totals only when shipping, VAT/tax treatment, customs and coupon state are explicit. Unknown components remain null; never treat the lowest item price as the cheapest delivered offer."
+      "notes": "Deployed to JM API Vault. Protected POST /shopping/landed-cost calculates only when shipping, tax/customs and coupon states are explicit. Real offer data still needs verification."
     },
     {
       "id": "telepecas-api-official",
@@ -1860,7 +1860,7 @@
         "vin",
         "free-api"
       ],
-      "status": "adapter-implemented-live-auth-pending",
+      "status": "deployed-live-auth-pending",
       "last_checked": "2026-10-17",
       "quality": "official-docs-verified",
       "evidence": "Official TelePeças developer portal and API docs fetched 2026-10-17.",
@@ -1948,7 +1948,7 @@
     {
       "id": "telepecas-stock-adapter",
       "name": "JM TelePeças stock search adapter",
-      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/telepecas-provider.js",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/telepecas-provider.js",
       "platform": "jm-api-vault",
       "topics": [
         "parts-shopping",
@@ -1960,11 +1960,33 @@
         "api",
         "free-api"
       ],
-      "status": "implemented-live-auth-pending",
+      "status": "deployed-live-auth-pending",
       "last_checked": "2026-10-17",
-      "quality": "mocked-tests-pending-latest-ci",
+      "quality": "unit-tested",
       "evidence": "Adapter and mocked tests added on feature branch; not merged or live-authenticated.",
-      "notes": "Protected GET /shopping/telepecas?q=... with optional maxPrice. Requires TELEPECAS_API_TOKEN. Shipping, tax and delivered price remain unknown unless separately verified."
+      "notes": "Deployed adapter, but live API token/permissions have not been verified. Protected GET /shopping/telepecas?q=... with optional maxPrice. Delivered cost remains unknown unless independently verified."
+    },
+    {
+      "id": "shopping-compare-engine",
+      "name": "JM cross-provider shopping comparison",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/shopping-compare.js",
+      "platform": "jm-api-vault",
+      "topics": [
+        "parts-shopping",
+        "global",
+        "price-comparison",
+        "telepecas",
+        "google-shopping",
+        "shipping",
+        "vat",
+        "customs",
+        "coupons"
+      ],
+      "status": "implemented-unit-tests-pending-current-run",
+      "last_checked": "2026-10-17",
+      "quality": "offline-tests-pending-current-run",
+      "evidence": "Combined provider helper and protected route added to main; CI run queued after latest commit.",
+      "notes": "Protected GET /shopping/compare?q=... combines Google Shopping discovery and TelePeças stock search when configured. Partial results are allowed; unknown shipping/tax/customs/coupon data stays incomplete."
     }
   ]
 }
