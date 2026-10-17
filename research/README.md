@@ -47,3 +47,14 @@ A discovered voucher is not validated until checkout confirms its applicability.
 - Supports explicit item price in EUR or a verified FX conversion, shipping to Portugal, VAT/tax treatment, customs/import charges and coupon checkout status.
 - Only returns `landed_cost_status: "verified"` and a numeric `total_delivered_price_eur` when every material component has explicit evidence. Unknown shipping/tax/customs/coupon status yields `total_delivered_price_eur: null` and a list of missing components.
 - The Google Shopping adapter still cannot infer shipping or final VAT from an advertised item price. It remains a discovery source, not a verified delivered-price source.
+
+
+## Current integration shortlist (evidence-graded)
+1. **TelePeças API — verify account access first.** Official portal describes free APIs, sandbox/production, stock search, OEM compatibility, plate/VIN identification, quotes/orders and webhooks. OAuth2 and seller/integrator permissions apply; confirm which documented endpoint is enabled for your account.
+2. **RegCheck / Matricula.co.pt.** Official Portugal-specific CheckPortugal route. 10 free test credits; then €0.20 per successful lookup with a 100-credit minimum. Vehicle data is documented; VIN may be absent.
+3. **CarAPI.app.** Official docs list PT and claim plate-to-VIN. Paid credits ($0.40 for 10 down to $0.25 for 1,000); no free Portugal test plate was found in the current docs.
+4. **TecAlliance TecDoc.** Strong vehicle-to-part/OE linkage source, commercial licence and coverage confirmation required.
+5. **eBay Browse API.** Global marketplace discovery and item compatibility checks; application token and production access required. Treat shipping/fitment as unverified until item data confirms it.
+6. **SerpApi Google Shopping.** Broad discovery with a limited free quota, but not proof of delivered cost.
+
+Auto.dev's public Plate-to-VIN page currently says the feature is for US plates and is not included in Free/Growth; do not use it as a Portugal registration decoder.
