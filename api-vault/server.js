@@ -4,6 +4,7 @@ const path=require("path");
 const {searchProducts,getCoupons}=require("./shopping-providers");
 const {lookupPortugueseRegistration}=require("./vehicle-providers");
 const {compareOffers}=require("./landed-cost");
+const {searchTelepecas}=require("./telepecas-provider");
 const app=express();
 const VAULT_TOKEN=process.env.VAULT_TOKEN;
 const AUTO_DEV_API_KEY=process.env.AUTO_DEV_API_KEY;
@@ -104,10 +105,21 @@ app.post("/shopping/landed-cost",(req,res)=>{
   res.json({count:offers.length,results:compareOffers(offers),note:"Only offers with verified shipping, tax/customs treatment and coupon state receive a verified delivered total."});
 });
 
+app.get("/shopping/telepecas",async(req,res)=>{
+  try{
+    const result=await searchTelepecas({q:req.query.q,maxPrice:req.query.maxPrice});
+    res.json(result);
+  }catch(e){
+    const status=Number.isInteger(e.statusCode)?e.statusCode:502;
+    res.status(status).json({error:e.message||"TelePeças search failed"});
+  }
+});
+
 app.get("/shopping/status",(req,res)=>res.json({
   providers:{
     serpapi:{configured:Boolean(process.env.SERPAPI_API_KEY)},
-    awin:{configured:Boolean(process.env.AWIN_PUBLISHER_ID&&process.env.AWIN_API_TOKEN)}
+    awin:{configured:Boolean(process.env.AWIN_PUBLISHER_ID&&process.env.AWIN_API_TOKEN)},
+    telepecas:{configured:Boolean(process.env.TELEPECAS_API_TOKEN)}
   },
   mode:"staging-ready-check",
   production_safe:true
