@@ -1,6 +1,6 @@
 {
-  "version": "1.1.5",
-  "updated_at": "2026-10-17",
+  "version": "1.2.0",
+  "updated_at": "2026-10-18",
   "scope": "JM Beloura automotive knowledge",
   "rules": [
     "No secret values in knowledge.",
@@ -1514,6 +1514,153 @@
       ],
       "summary": "Protected GET /shopping/compare?q=... combines Google Shopping discovery and TelePeças stock search when each provider is configured. Partial results are allowed; unknown shipping/tax/customs/coupon data stays incomplete and verified delivered totals rank first.",
       "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/shopping-compare.js"
+    },
+    {
+      "id": "master-research-prompt",
+      "category": "jm-beloura-workflow",
+      "status": "current",
+      "title": "Exhaustive JM Beloura master research prompt",
+      "tags": [
+        "prompt",
+        "research",
+        "automotive",
+        "api",
+        "parts",
+        "coupons",
+        "credentials",
+        "testing",
+        "officegest"
+      ],
+      "summary": "Master research prompt covering vehicle identity, plate/VIN, TecDoc/OE, repair data, global parts and delivered cost, coupons, OfficeGest, suppliers, credential governance, QA, deployment and evidence-based completion.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/research/MASTER_RESEARCH_PROMPT.md"
+    },
+    {
+      "id": "credential-access-matrix",
+      "category": "jm-beloura-workflow",
+      "status": "current",
+      "title": "JM Vault credential and access matrix",
+      "tags": [
+        "credentials",
+        "render",
+        "api-keys",
+        "security",
+        "regcheck",
+        "telepecas",
+        "serpapi",
+        "officegest",
+        "tecdoc"
+      ],
+      "summary": "Single matrix of active code variables and optional candidate credentials, official signup/docs links, access/pricing caveats and secret-safe testing instructions. Never stores secret values.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/research/CREDENTIALS_AND_ACCESS_MATRIX.md"
+    },
+    {
+      "id": "officegest-integration",
+      "category": "workshop-erp",
+      "status": "documented-account-access-pending",
+      "title": "OfficeGest API integration",
+      "tags": [
+        "officegest",
+        "erp",
+        "workshop",
+        "customers",
+        "stock",
+        "documents",
+        "webhooks"
+      ],
+      "summary": "Official v1 and v2 REST docs found; v2 is experimental, uses bearer token; v1 uses Basic Auth. Confirm module access and test sandbox before integrating reception, estimates, stock and documents.",
+      "url": "https://api.officegest.com/docs"
+    },
+    {
+      "id": "carsxe-vehicle-api",
+      "category": "vehicle-identity",
+      "status": "documented-portugal-test-required",
+      "title": "CarsXE vehicle data API",
+      "tags": [
+        "carsxe",
+        "plate",
+        "vin",
+        "history",
+        "market-value",
+        "recalls"
+      ],
+      "summary": "Official docs describe plate decoder across 60+ countries, VIN specs, market value, history and recalls. Country responses vary; Portuguese plate and VIN fields must be tested before purchase.",
+      "url": "https://docs.carsxe.com/docs/get-started"
+    },
+    {
+      "id": "vdim-fitment-api",
+      "category": "tyres-fitment",
+      "status": "documented-free-limited",
+      "title": "VDIM tire fitment API",
+      "tags": [
+        "tyres",
+        "fitment",
+        "free-tier",
+        "vin",
+        "reverse-lookup"
+      ],
+      "summary": "Official docs state free tier 250 fitment lookups/month plus a one-time 250 bonus from Sep 2026; VIN and reverse-lookup have separate quotas. Respect acceptable-use restrictions.",
+      "url": "https://tire.vdim.app/api/docs"
+    },
+    {
+      "id": "ymmfit-retrofit",
+      "category": "retrofit-fitment",
+      "status": "documented-limited-free-sandbox",
+      "title": "YMMFit car-audio and retrofit fitment",
+      "tags": [
+        "radio",
+        "fascia",
+        "harness",
+        "carplay",
+        "camera",
+        "retrofit"
+      ],
+      "summary": "Public sandbox for vehicle make/model and limited fitment. Full catalog advertised from €149; useful for dashboard kits, wiring harnesses, cameras and CarPlay, not mechanical parts.",
+      "url": "https://ymmfit.com/fitment-api"
+    },
+    {
+      "id": "fapi-catalog-api",
+      "category": "parts-catalogue",
+      "status": "documented-trial-needs-validation",
+      "title": "FAPI catalog API",
+      "tags": [
+        "oem",
+        "aftermarket",
+        "cross-reference",
+        "vin",
+        "catalogue"
+      ],
+      "summary": "OpenAPI spec documents vehicle catalog, VIN identification, aftermarket parts, OEM references and analogs; trial credits may be available. Validate data rights and coverage.",
+      "url": "https://github.com/fapi-dev/catalog-openapi"
+    },
+    {
+      "id": "autodata-api-access",
+      "category": "repair-data",
+      "status": "commercial-api-access-required",
+      "title": "Autodata API access",
+      "tags": [
+        "repair",
+        "maintenance",
+        "labor-time",
+        "wiring",
+        "api"
+      ],
+      "summary": "Official interactive API docs require API key and integration contact. Retail workshop subscriptions do not automatically establish API entitlement.",
+      "url": "https://developer.autodata-group.com/io-docs"
+    },
+    {
+      "id": "vehicle-history-business",
+      "category": "vehicle-history",
+      "status": "commercial-candidates",
+      "title": "Business vehicle history API candidates",
+      "tags": [
+        "carvertical",
+        "autodna",
+        "carfax",
+        "used-vehicles",
+        "imports"
+      ],
+      "summary": "carVertical advertises tailored business API; autoDNA and CARFAX Europe are candidate history sources. Request business terms and compare Portugal coverage and price per report.",
+      "url": "https://www.carvertical.com/en/business/api"
     }
   ]
 }
