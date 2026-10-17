@@ -2434,6 +2434,41 @@
       "last_checked": "2026-10-18",
       "quality": "documented",
       "evidence": "Official provider page identified; scope, account access and costs still need validation."
+    },
+    {
+      "id": "jm-master-prompt",
+      "name": "JM Beloura Master Research Prompt",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/research/MASTER_RESEARCH_PROMPT.md",
+      "topics": [
+        "research",
+        "automotive",
+        "global-parts",
+        "credentials",
+        "qa"
+      ],
+      "status": "active-protocol",
+      "last_checked": "2026-10-18",
+      "quality": "version-controlled",
+      "evidence": "Committed to main; defines exhaustive research, evidence statuses and completion criteria.",
+      "notes": "Use as the default protocol for future research runs.",
+      "platform": "jm-api-vault"
+    },
+    {
+      "id": "jm-credentials-matrix",
+      "name": "JM Vault Credentials and Access Matrix",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/research/CREDENTIALS_AND_ACCESS_MATRIX.md",
+      "topics": [
+        "credentials",
+        "security",
+        "render",
+        "integrations"
+      ],
+      "status": "active-reference",
+      "last_checked": "2026-10-18",
+      "quality": "version-controlled",
+      "evidence": "Committed to main; separates code-used env vars from optional candidate credentials.",
+      "notes": "No secret values included. Do not create candidate variables until a corresponding adapter is implemented and access confirmed.",
+      "platform": "jm-api-vault"
     }
   ]
 }
