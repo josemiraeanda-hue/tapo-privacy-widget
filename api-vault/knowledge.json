@@ -1,5 +1,5 @@
 {
-  "version": "1.1.4",
+  "version": "1.1.5",
   "updated_at": "2026-10-17",
   "scope": "JM Beloura automotive knowledge",
   "rules": [
@@ -1378,7 +1378,7 @@
     {
       "id": "landed-cost-engine",
       "category": "parts-shopping",
-      "status": "implemented-tested",
+      "status": "deployed-unit-tested-live-data-pending",
       "title": "JM delivered-cost calculator",
       "tags": [
         "parts",
@@ -1392,12 +1392,12 @@
         "api"
       ],
       "summary": "Protected POST /shopping/landed-cost ranks offers with a verified delivered total only when shipping, tax treatment, customs and coupon state are explicit. Missing evidence leaves total null and records missing components.",
-      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/landed-cost.js"
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/landed-cost.js"
     },
     {
       "id": "telepecas-api-official",
       "category": "parts-supplier-api",
-      "status": "adapter-implemented-live-auth-pending",
+      "status": "deployed-live-auth-pending",
       "title": "TelePeças API — stock, vehicle lookup and parts integration",
       "tags": [
         "portugal",
@@ -1482,7 +1482,7 @@
     {
       "id": "telepecas-stock-adapter",
       "category": "parts-shopping",
-      "status": "implemented-live-auth-pending",
+      "status": "deployed-live-auth-pending",
       "title": "JM TelePeças stock search adapter",
       "tags": [
         "telepecas",
@@ -1494,7 +1494,26 @@
         "free-api"
       ],
       "summary": "Feature branch adds protected GET /shopping/telepecas?q=... with optional maxPrice. Requires TELEPECAS_API_TOKEN. Results are normalized to reference/price/condition, but shipping, tax and final delivered cost remain unknown unless independently verified.",
-      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/telepecas-provider.js"
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/telepecas-provider.js"
+    },
+    {
+      "id": "shopping-compare-engine",
+      "category": "parts-shopping",
+      "status": "implemented-unit-tests-pending-current-run",
+      "title": "JM cross-provider shopping comparison",
+      "tags": [
+        "parts",
+        "global",
+        "price-comparison",
+        "telepecas",
+        "google-shopping",
+        "shipping",
+        "vat",
+        "customs",
+        "coupons"
+      ],
+      "summary": "Protected GET /shopping/compare?q=... combines Google Shopping discovery and TelePeças stock search when each provider is configured. Partial results are allowed; unknown shipping/tax/customs/coupon data stays incomplete and verified delivered totals rank first.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/main/api-vault/shopping-compare.js"
     }
   ]
 }
