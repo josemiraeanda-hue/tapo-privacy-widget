@@ -1,5 +1,5 @@
 {
-  "version": "1.1.3",
+  "version": "1.1.4",
   "updated_at": "2026-10-17",
   "scope": "JM Beloura automotive knowledge",
   "rules": [
@@ -1397,7 +1397,7 @@
     {
       "id": "telepecas-api-official",
       "category": "parts-supplier-api",
-      "status": "access-gated",
+      "status": "adapter-implemented-live-auth-pending",
       "title": "TelePeças API — stock, vehicle lookup and parts integration",
       "tags": [
         "portugal",
@@ -1411,7 +1411,7 @@
         "api",
         "free-api"
       ],
-      "summary": "Official API portal says APIs are free and offers sandbox/production modes; OAuth2 and seller/integrator permissions are required. Marketing page claims stock search, OEM/IAM compatibility, plate/VIN decoding, quotes/orders and webhooks; access and plan limits vary. Best no-subscription candidate to verify first.",
+      "summary": "Official API portal says APIs are free and offers sandbox/production. Marketing page documents GET /v1/stock/search?q=... with Bearer token and claims stock search, OEM/IAM compatibility, plate/VIN identification, quotes/orders and webhooks. A protected JM adapter now exposes stock search; live credentials/permissions still need verification.",
       "url": "https://api.telepecas.com/docs"
     },
     {
@@ -1478,6 +1478,23 @@
       ],
       "summary": "Official docs: free web services spin down after 15 minutes idle, take about a minute to restart, have ephemeral local files, and share 750 free instance-hours per workspace/month; free Postgres expires after 30 days. Suitable for prototype/testing, not guaranteed always-on production.",
       "url": "https://render.com/docs/free"
+    },
+    {
+      "id": "telepecas-stock-adapter",
+      "category": "parts-shopping",
+      "status": "implemented-live-auth-pending",
+      "title": "JM TelePeças stock search adapter",
+      "tags": [
+        "telepecas",
+        "parts",
+        "reference",
+        "stock",
+        "price",
+        "api",
+        "free-api"
+      ],
+      "summary": "Feature branch adds protected GET /shopping/telepecas?q=... with optional maxPrice. Requires TELEPECAS_API_TOKEN. Results are normalized to reference/price/condition, but shipping, tax and final delivered cost remain unknown unless independently verified.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/blob/feat/jm-vault-catalog-clean/api-vault/telepecas-provider.js"
     }
   ]
 }
