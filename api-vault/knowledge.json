@@ -1,12 +1,16 @@
 {
-  "version": "1.0.0",
-  "updated_at": "2026-09-30",
+  "version": "1.1.0",
+  "updated_at": "2026-10-17",
   "scope": "JM Beloura automotive knowledge",
   "rules": [
     "No secret values in knowledge.",
     "Prefer official/primary sources.",
     "Candidates require verification before production.",
-    "Consult this base before external research for relevant JM automotive/workshop questions."
+    "Consult this base before external research for relevant JM automotive/workshop questions.",
+    "Research directory entries are leads, not endorsements; check current availability, legitimacy, terms and safety.",
+    "Mark shipping and coupon status as verified only after a live provider/checkout check.",
+    "Do not store credentials or API secret values in the knowledge base.",
+    "Prefer one central tagged source catalog and separate dated research run logs."
   ],
   "entries": [
     {
@@ -923,6 +927,398 @@
       ],
       "summary": "Official Render port-binding documentation.",
       "url": "https://render.com/docs/web-services#port-binding"
+    },
+    {
+      "id": "research-fmhy",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "FMHY — Free Media Heck Yeah",
+      "tags": [
+        "freemedia",
+        "streaming",
+        "downloads",
+        "software",
+        "android",
+        "research-directory"
+      ],
+      "summary": "Community-maintained index for legal/availability checks of public freemedia resources; review individual links and legal status before use.",
+      "url": "https://fmhy.net/"
+    },
+    {
+      "id": "research-fmhy-github",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "FMHY GitHub Wiki",
+      "tags": [
+        "github",
+        "freemedia",
+        "streaming",
+        "downloads",
+        "android"
+      ],
+      "summary": "Versioned community directory; useful for checking changes and source provenance.",
+      "url": "https://github.com/fmhy/FMHY/wiki/"
+    },
+    {
+      "id": "research-reddit-fmhy",
+      "category": "research-community",
+      "status": "candidate",
+      "title": "Reddit r/FREEMEDIAHECKYEAH",
+      "tags": [
+        "reddit",
+        "community",
+        "freemedia",
+        "research"
+      ],
+      "summary": "Community discussion and reports; claims require corroboration.",
+      "url": "https://www.reddit.com/r/FREEMEDIAHECKYEAH/"
+    },
+    {
+      "id": "research-reddit-piracy",
+      "category": "research-community",
+      "status": "candidate",
+      "title": "Reddit r/Piracy",
+      "tags": [
+        "reddit",
+        "community",
+        "piracy",
+        "research"
+      ],
+      "summary": "Community discussion; treat links and reputation claims as unverified until cross-checked.",
+      "url": "https://www.reddit.com/r/Piracy/"
+    },
+    {
+      "id": "research-tgstat",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "TGStat public Telegram search",
+      "tags": [
+        "telegram",
+        "channels",
+        "search",
+        "public-directory"
+      ],
+      "summary": "Searches public Telegram channels/posts; only public content accessible without unauthorized access.",
+      "url": "https://tgstat.com/channels/search"
+    },
+    {
+      "id": "research-discord-discovery",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "Discord Server Discovery",
+      "tags": [
+        "discord",
+        "servers",
+        "communities",
+        "public-directory"
+      ],
+      "summary": "Official public discovery surface for Discord communities.",
+      "url": "https://discord.com/servers"
+    },
+    {
+      "id": "research-disboard",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "DISBOARD",
+      "tags": [
+        "discord",
+        "servers",
+        "communities",
+        "directory"
+      ],
+      "summary": "Third-party public Discord server directory; validate server legitimacy and safety.",
+      "url": "https://disboard.org/search"
+    },
+    {
+      "id": "research-revanced",
+      "category": "android-modding",
+      "status": "candidate",
+      "title": "ReVanced Patcher",
+      "tags": [
+        "android",
+        "patching",
+        "open-source",
+        "github",
+        "modding"
+      ],
+      "summary": "Open-source patching tooling; inspect official repository, releases, source and build instructions.",
+      "url": "https://github.com/ReVanced/revanced-patcher"
+    },
+    {
+      "id": "research-awesome-android-root",
+      "category": "android-modding",
+      "status": "candidate",
+      "title": "Awesome Android Root",
+      "tags": [
+        "android",
+        "root",
+        "modding",
+        "github",
+        "open-source"
+      ],
+      "summary": "Community-curated Android rooting/modding resource list; review maintenance and links.",
+      "url": "https://github.com/awesome-android-root/awesome-android-root"
+    },
+    {
+      "id": "research-github-revanced-topic",
+      "category": "android-modding",
+      "status": "candidate",
+      "title": "GitHub topic: ReVanced",
+      "tags": [
+        "android",
+        "revanced",
+        "github",
+        "repositories"
+      ],
+      "summary": "Discovery surface for public repositories; verify maintainer identity and repository provenance.",
+      "url": "https://github.com/topics/revanced"
+    },
+    {
+      "id": "research-fmhy-mobile",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "FMHY Mobile",
+      "tags": [
+        "android",
+        "mobile",
+        "apps",
+        "freemedia"
+      ],
+      "summary": "Community-maintained mobile resource list; check APK provenance, signatures, permissions and license.",
+      "url": "https://github.com/fmhy/FMHY/wiki/Mobile"
+    },
+    {
+      "id": "research-fmhy-streaming",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "FMHY Streaming",
+      "tags": [
+        "streaming",
+        "movies",
+        "series",
+        "video"
+      ],
+      "summary": "Directory of streaming resources; legal status, safety and availability must be checked per source.",
+      "url": "https://github.com/fmhy/FMHY/wiki/Streaming"
+    },
+    {
+      "id": "research-fmhy-downloading",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "FMHY Downloading",
+      "tags": [
+        "downloads",
+        "files",
+        "tools"
+      ],
+      "summary": "Directory of downloading tools and resources; validate safety and licensing.",
+      "url": "https://github.com/fmhy/FMHY/wiki/Downloading"
+    },
+    {
+      "id": "research-fmhy-misc",
+      "category": "research-directory",
+      "status": "candidate",
+      "title": "FMHY Misc",
+      "tags": [
+        "misc",
+        "tools",
+        "research",
+        "directory"
+      ],
+      "summary": "General resource index for additional categories and tools.",
+      "url": "https://github.com/fmhy/FMHY/wiki/Misc"
+    },
+    {
+      "id": "matricula-co-pt-pricing",
+      "category": "vehicle-identification",
+      "status": "candidate",
+      "title": "Matricula.co.pt — plate-to-VIN API",
+      "tags": [
+        "portugal",
+        "matricula",
+        "plate-to-vin",
+        "vin",
+        "api",
+        "pricing"
+      ],
+      "summary": "Previously identified paid service: 10 free queries then €0.20/query; minimum purchase reported as 100 queries (€20). Reconfirm current terms/pricing and test Portugal plate coverage before integration.",
+      "url": "https://matricula.co.pt/"
+    },
+    {
+      "id": "vehicle-search-criteria",
+      "category": "vehicle-identification",
+      "status": "confirmed",
+      "title": "JM Beloura vehicle lookup requirements",
+      "tags": [
+        "portugal",
+        "matricula",
+        "vin",
+        "make",
+        "model",
+        "version",
+        "engine",
+        "vehicle-search"
+      ],
+      "summary": "Required workflow: Portuguese registration → VIN where available → exact make/model/version/engine → technical data; Auto.dev VIN decode alone does not solve Portuguese plate-to-VIN."
+    },
+    {
+      "id": "parts-global-cost",
+      "category": "parts-shopping",
+      "status": "confirmed",
+      "title": "Global parts cost comparison requirements",
+      "tags": [
+        "parts",
+        "oem",
+        "reference",
+        "cross-reference",
+        "price",
+        "shipping",
+        "vat",
+        "landed-cost",
+        "coupons",
+        "stock"
+      ],
+      "summary": "Compare OEM and aftermarket references, compatibility evidence, stock, currency, price, shipping to Portugal, VAT/customs where applicable, coupon eligibility, delivery time and total delivered price. Never mark shipping or coupon as verified without checkout/provider evidence."
+    },
+    {
+      "id": "supplier-autozitania-integration",
+      "category": "supplier-integration",
+      "status": "workshop-priority",
+      "title": "Autozitania integration investigation",
+      "tags": [
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "summary": "Priority supplier. Request or verify official API, EDI/XML/CSV/FTP access, account-specific price/stock and order workflows before implementing."
+    },
+    {
+      "id": "supplier-drive360-integration",
+      "category": "supplier-integration",
+      "status": "workshop-priority",
+      "title": "Create / Drive360 integration investigation",
+      "tags": [
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "summary": "Priority supplier ecosystem. Verify permitted data access and account-specific integration route."
+    },
+    {
+      "id": "supplier-alecarpecas-integration",
+      "category": "supplier-integration",
+      "status": "workshop-priority",
+      "title": "AleCarPecas / Auto Delta integration investigation",
+      "tags": [
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "summary": "Priority supplier route. Verify direct or portal-based data access, compatibility lookup and order submission."
+    },
+    {
+      "id": "supplier-mcoutinho-integration",
+      "category": "supplier-integration",
+      "status": "workshop-priority",
+      "title": "MCoutinho integration investigation",
+      "tags": [
+        "supplier",
+        "portugal",
+        "stock",
+        "price",
+        "orders",
+        "api",
+        "edi"
+      ],
+      "summary": "Priority supplier. Verify official digital catalogue and account-specific access."
+    },
+    {
+      "id": "research-adult-legal-content",
+      "category": "content-research",
+      "status": "policy-scoped",
+      "title": "Legal adult-content research scope",
+      "tags": [
+        "adult",
+        "18+",
+        "consenting-adults",
+        "content-directory"
+      ],
+      "summary": "Research only legal content involving consenting adults; do not deliberately search for, retain or link to sexual abuse material or content involving minors."
+    },
+    {
+      "id": "api-price-compare-serpapi",
+      "category": "parts-shopping",
+      "status": "commercial-candidate",
+      "title": "SerpApi Google Shopping integration",
+      "tags": [
+        "shopping",
+        "products",
+        "price",
+        "serpapi",
+        "api"
+      ],
+      "summary": "Code exists in shopping-providers.js. Requires SERPAPI_API_KEY; results are search candidates, not confirmed stock, shipping or final delivered prices.",
+      "url": "https://serpapi.com/search-api"
+    },
+    {
+      "id": "api-coupons-awin",
+      "category": "coupon-integration",
+      "status": "commercial-candidate",
+      "title": "Awin Promotions API integration",
+      "tags": [
+        "coupons",
+        "promotions",
+        "awin",
+        "api",
+        "affiliate"
+      ],
+      "summary": "Code exists in shopping-providers.js. Requires publisher ID/token and a valid Awin publisher account; feed candidates are not checkout-validated coupons.",
+      "url": "https://developers.awin.com/"
+    },
+    {
+      "id": "api-tecalliance-official",
+      "category": "parts",
+      "status": "commercial",
+      "title": "TecAlliance TecDoc Web Service",
+      "tags": [
+        "tecdoc",
+        "vin",
+        "vrm",
+        "oem",
+        "cross-reference",
+        "vehicle-identification",
+        "parts"
+      ],
+      "summary": "Official commercial parts/vehicle catalogue service; product pages describe lookup by vehicle details, VIN, VRM or OE number. Obtain applicable licence and confirm Portuguese coverage.",
+      "url": "https://www.tecalliance.net/products/cards/tecdoc-web-service"
+    },
+    {
+      "id": "research-source-catalog-design",
+      "category": "infrastructure",
+      "status": "confirmed",
+      "title": "JM Research Vault source catalog",
+      "tags": [
+        "research",
+        "catalog",
+        "sources",
+        "tags",
+        "provenance",
+        "audit"
+      ],
+      "summary": "Central source catalog with topic tags, confidence/status, evidence and last-checked fields; research run logs are stored separately to avoid topic-specific silos.",
+      "url": "https://github.com/josemiraeanda-hue/tapo-privacy-widget/tree/feat/jm-vault-research-catalog-2026-10/research"
     }
   ]
 }
