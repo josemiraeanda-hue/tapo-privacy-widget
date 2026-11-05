@@ -64,3 +64,22 @@ py -3 -c "import sqlite3; c=sqlite3.connect('api-vault/data/jm-vault.sqlite3'); 
 - O importador não altera o GitHub, o Render nem os serviços existentes.
 - Esta primeira etapa cria armazenamento local e acesso direto por SQL. Não cria um túnel de rede nem expõe a base de dados à Internet.
 - Para o ChatGPT consultar automaticamente a base que está no teu PC será necessária uma ponte local autenticada, porque o ChatGPT na cloud não consegue abrir diretamente ficheiros ou endereços `localhost` do teu computador. Essa ponte deve ser read-only por defeito e não deve expor a base de dados publicamente.
+
+## Validação e atualização atómica
+
+Os dois catálogos e o histórico são atualizados numa única transação. Uma falha
+no segundo catálogo reverte também a alteração do primeiro. Os campos `entries`
+e `sources` têm de existir explicitamente; IDs vazios, nulos ou repetidos são
+rejeitados. Uma lista vazia explícita continua a representar um catálogo vazio.
+Outras tabelas locais são preservadas.
+
+Testes sem serviços externos:
+
+```sh
+python3 -m unittest discover -s tools/local-db -p 'test_*.py'
+```
+
+As funções de importação usam a transação do chamador; não fazem commit isolado.
+O conteúdo original de cada registo fica preservado em `source_json`. O programa
+não certifica a ausência de segredos nos JSON de entrada: estes devem continuar
+sem credenciais, como exige a política do repositório.

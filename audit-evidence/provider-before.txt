@@ -1,0 +1,83 @@
+✔ product search refuses to run without a key (2.687383ms)
+✔ product search normalizes Portuguese-market results and caps by price (2.397181ms)
+✔ product search accepts SerpApi product_link and direct_link URL fields (1.018764ms)
+✔ coupon feed marks codes as untested at checkout and filters region (2.206894ms)
+✔ coupon feed fails clearly when Awin credentials are missing (0.272661ms)
+✔ provider errors are surfaced without exposing the request URL (0.273041ms)
+✖ provider transport failures never expose credentials in URLs (0.8626ms)
+✖ provider error bodies never expose echoed credentials (0.281584ms)
+✖ provider error in a successful HTTP response is not an empty success (0.452802ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 6
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.001428
+
+✖ failing tests:
+
+test at api-vault/tests/shopping-providers.test.js:71:1
+✖ provider transport failures never expose credentials in URLs (0.8626ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: Network https://serpapi.com/search.json?engine=google_shopping&q=transport-redaction-test&location=Lisbon%2C+Portugal&gl=pt&hl=pt-PT&sort_by=1&api_key=fixture-sensitive
+      at async TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/shopping-providers.test.js:72:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Network https://serpapi.com/search.json?engine=google_shopping&q=transport-redaction-test&location=Lisbon%2C+Portugal&gl=pt&hl=pt-PT&sort_by=1&api_key=fixture-sensitive
+        at fetchImpl (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/shopping-providers.test.js:72:124)
+        at searchProducts (/workspace/scratch/a006872361d6/vault-audit/api-vault/shopping-providers.js:81:26)
+        at TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/shopping-providers.test.js:72:24)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1402:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+        at Test.postRun (node:internal/test_runner/test:1542:19)
+        at Test.run (node:internal/test_runner/test:1467:12)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:974:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at api-vault/tests/shopping-providers.test.js:74:1
+✖ provider error bodies never expose echoed credentials (0.281584ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: SerpApi request failed: key=fixture-sensitive
+      at async TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/shopping-providers.test.js:75:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: SerpApi request failed: key=fixture-sensitive
+        at readJson (/workspace/scratch/a006872361d6/vault-audit/api-vault/shopping-providers.js:32:11)
+        at async searchProducts (/workspace/scratch/a006872361d6/vault-audit/api-vault/shopping-providers.js:84:16)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/shopping-providers.test.js:75:3)
+        at async Test.run (node:internal/test_runner/test:1409:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:974:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at api-vault/tests/shopping-providers.test.js:77:1
+✖ provider error in a successful HTTP response is not an empty success (0.452802ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/shopping-providers.test.js:78:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

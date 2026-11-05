@@ -1,0 +1,45 @@
+✔ public health and concealed unauthenticated routes (15.478727ms)
+✔ authentication runs before JSON parsing (1.302061ms)
+✔ malformed authenticated JSON returns safe JSON (9.554062ms)
+✔ knowledge query, categories and item contracts (16.683262ms)
+✔ structured query parameter is rejected (1.464085ms)
+✔ invalid VIN never calls provider (5.559364ms)
+✔ VIN provider has timeout and normalizes lowercase VIN (1.666465ms)
+✔ calculates total only when shipping, tax, customs and coupon states are explicit (2.970365ms)
+✔ keeps total unknown if shipping or tax treatment is unknown (0.448766ms)
+✔ converts non-EUR item price only with a verified exchange rate (0.261945ms)
+✔ does not accept a coupon discount larger than known total cost (0.273302ms)
+✔ ranks verified delivered totals before unverified advertised prices (0.444349ms)
+✔ does not rank incomplete offers across different currencies (0.279231ms)
+✔ compares both providers and returns explicit provider status (2.187005ms)
+✔ keeps partial results if one provider is not configured (0.557069ms)
+✔ fails clearly when no provider is configured (1.086006ms)
+✔ requires a query (0.343608ms)
+✔ product search refuses to run without a key (2.351141ms)
+✔ product search normalizes Portuguese-market results and caps by price (1.815255ms)
+✔ product search accepts SerpApi product_link and direct_link URL fields (2.939848ms)
+✔ coupon feed marks codes as untested at checkout and filters region (1.827513ms)
+✔ coupon feed fails clearly when Awin credentials are missing (0.419722ms)
+✔ provider errors are surfaced without exposing the request URL (0.600885ms)
+✔ provider transport failures never expose credentials in URLs (0.422616ms)
+✔ provider error bodies never expose echoed credentials (0.339902ms)
+✔ provider error in a successful HTTP response is not an empty success (0.507795ms)
+✔ TelePeças search requires a query (1.859541ms)
+✔ TelePeças search requires account access token (0.326963ms)
+✔ TelePeças search normalizes reference and price, while leaving delivery unverified (1.77939ms)
+✔ TelePeças search applies maximum item price (0.414975ms)
+✔ TelePeças errors do not expose provider response bodies (0.46454ms)
+✔ normalizes Portuguese registration punctuation (1.253718ms)
+✔ rejects malformed registration numbers before network access (0.787095ms)
+✔ requires RegCheck credentials (0.203085ms)
+✔ returns normalized vehicle data and does not fabricate a VIN (1.386249ms)
+✔ does not expose provider response bodies on authentication failures (0.357048ms)
+✔ rejects malformed provider JSON (0.39797ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 229.696096

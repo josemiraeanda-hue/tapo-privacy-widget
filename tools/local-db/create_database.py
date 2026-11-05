@@ -17,6 +17,19 @@ def load_json(path: Path):
         return json.load(handle)
 
 
+def records(document, key):
+    if not isinstance(document, dict) or key not in document or not isinstance(document[key], list):
+        raise ValueError(f"Catalogue must contain an explicit '{key}' array")
+    seen = set()
+    for item in document[key]:
+        if not isinstance(item, dict) or not isinstance(item.get('id'), str) or not item['id'].strip():
+            raise ValueError(f"{key}: every record must have a non-empty string id")
+        if item['id'] in seen:
+            raise ValueError(f"{key}: duplicate record id")
+        seen.add(item['id'])
+    return document[key]
+
+
 def ensure_schema(db: sqlite3.Connection):
     db.executescript("""
     PRAGMA foreign_keys = ON;
@@ -64,57 +77,51 @@ def ensure_schema(db: sqlite3.Connection):
 
 def import_knowledge(db, path: Path, imported_at: str) -> int:
     document = load_json(path)
-    entries = document.get("entries", [])
-    if not isinstance(entries, list):
-        raise ValueError("knowledge.json: 'entries' must be an array")
-    with db:
-        db.execute("DELETE FROM knowledge_entries")
-        db.executemany("""
-            INSERT INTO knowledge_entries
-            (id, category, status, title, tags_json, summary, url, source_json, imported_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, [
-            (
-                str(e["id"]), e.get("category"), e.get("status"),
-                str(e.get("title") or e["id"]),
-                json.dumps(e.get("tags", []), ensure_ascii=False),
-                e.get("summary"), e.get("url"),
-                json.dumps(e, ensure_ascii=False), imported_at
-            )
-            for e in entries
-        ])
-        db.execute(
-            "INSERT INTO import_history(dataset,source_file,record_count,imported_at) VALUES(?,?,?,?)",
-            ("knowledge", str(path), len(entries), imported_at)
+    entries = records(document, "entries")
+    db.execute("DELETE FROM knowledge_entries")
+    db.executemany("""
+        INSERT INTO knowledge_entries
+        (id, category, status, title, tags_json, summary, url, source_json, imported_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, [
+        (
+            str(e["id"]), e.get("category"), e.get("status"),
+            str(e.get("title") or e["id"]),
+            json.dumps(e.get("tags", []), ensure_ascii=False),
+            e.get("summary"), e.get("url"),
+            json.dumps(e, ensure_ascii=False), imported_at
         )
+        for e in entries
+    ])
+    db.execute(
+        "INSERT INTO import_history(dataset,source_file,record_count,imported_at) VALUES(?,?,?,?)",
+        ("knowledge", str(path), len(entries), imported_at)
+    )
     return len(entries)
 
 
 def import_sources(db, path: Path, imported_at: str) -> int:
     document = load_json(path)
-    sources = document.get("sources", [])
-    if not isinstance(sources, list):
-        raise ValueError("sources.json: 'sources' must be an array")
-    with db:
-        db.execute("DELETE FROM research_sources")
-        db.executemany("""
-            INSERT INTO research_sources
-            (id, name, platform, status, quality, url, topics_json, evidence, notes, source_json, imported_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, [
-            (
-                str(s["id"]), str(s.get("name") or s["id"]),
-                s.get("platform"), s.get("status"), s.get("quality"),
-                s.get("url"), json.dumps(s.get("topics", []), ensure_ascii=False),
-                s.get("evidence"), s.get("notes"),
-                json.dumps(s, ensure_ascii=False), imported_at
-            )
-            for s in sources
-        ])
-        db.execute(
-            "INSERT INTO import_history(dataset,source_file,record_count,imported_at) VALUES(?,?,?,?)",
-            ("research_sources", str(path), len(sources), imported_at)
+    sources = records(document, "sources")
+    db.execute("DELETE FROM research_sources")
+    db.executemany("""
+        INSERT INTO research_sources
+        (id, name, platform, status, quality, url, topics_json, evidence, notes, source_json, imported_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, [
+        (
+            str(s["id"]), str(s.get("name") or s["id"]),
+            s.get("platform"), s.get("status"), s.get("quality"),
+            s.get("url"), json.dumps(s.get("topics", []), ensure_ascii=False),
+            s.get("evidence"), s.get("notes"),
+            json.dumps(s, ensure_ascii=False), imported_at
         )
+        for s in sources
+    ])
+    db.execute(
+        "INSERT INTO import_history(dataset,source_file,record_count,imported_at) VALUES(?,?,?,?)",
+        ("research_sources", str(path), len(sources), imported_at)
+    )
     return len(sources)
 
 
@@ -141,6 +148,7 @@ def main():
     imported_at = datetime.now(timezone.utc).isoformat()
     with sqlite3.connect(database) as db:
         ensure_schema(db)
+        db.execute("BEGIN")
         knowledge_count = import_knowledge(db, knowledge, imported_at)
         source_count = import_sources(db, catalog, imported_at)
         integrity = db.execute("PRAGMA integrity_check").fetchone()[0]
@@ -152,7 +160,7 @@ def main():
     print(f"Entradas de conhecimento: {knowledge_count}")
     print(f"Fontes de investigação: {source_count}")
     print(f"Integridade SQLite: {integrity}")
-    print("Nenhuma credencial ou segredo foi importado.")
+    print("Importação limitada aos catálogos indicados; não foram lidas variáveis de ambiente.")
 
 
 if __name__ == "__main__":

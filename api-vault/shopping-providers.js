@@ -27,11 +27,14 @@ async function readJson(response, provider) {
   let body;
   try { body = await response.json(); }
   catch { throw new Error(provider + " returned an invalid JSON response"); }
-  if (!response.ok) {
-    const message = cleanText(body?.error || body?.message || ("HTTP " + response.status), 180);
-    throw new Error(provider + " request failed: " + message);
+  if (!response.ok || body?.error) {
+    throw new Error(provider + " request failed (HTTP " + response.status + ")");
   }
   return body;
+}
+async function safeFetch(fetchImpl, url, options, provider) {
+  try { return await fetchImpl(url, options); }
+  catch { throw new Error(provider + " request failed"); }
 }
 function normalizeProduct(item) {
   const price = Number.isFinite(Number(item?.extracted_price)) && item?.extracted_price !== null && item?.extracted_price !== ""
@@ -78,9 +81,9 @@ async function searchProducts({ q, location = "Lisbon, Portugal", maxPrice, sort
   url.searchParams.set("api_key", apiKey);
   if (numericMax !== null) url.searchParams.set("max_price", String(numericMax));
 
-  const response = await fetchImpl(url.toString(), {
+  const response = await safeFetch(fetchImpl, url.toString(), {
     method: "GET", headers: { Accept: "application/json" }, signal: AbortSignal.timeout(15000)
-  });
+  }, "SerpApi");
   const body = await readJson(response, "SerpApi");
   const results = (Array.isArray(body.shopping_results) ? body.shopping_results : [])
     .map(normalizeProduct)
@@ -128,12 +131,12 @@ async function getCoupons({ q = "", country = "PT", type = "all", publisherId = 
   // Awin's current endpoint schema documents accessToken as a query parameter;
   // the Bearer header is also sent per its authentication guide.
   url.searchParams.set("accessToken", token);
-  const response = await fetchImpl(url.toString(), {
+  const response = await safeFetch(fetchImpl, url.toString(), {
     method: "POST",
     headers: { Authorization: "Bearer " + token, Accept: "application/json", "Content-Type": "application/json" },
     body: JSON.stringify({ filters: { regionCodes: [region], status: "active", type: selectedType, membership: "all" }, pagination: { page: 1, pageSize: 100 } }),
     signal: AbortSignal.timeout(15000)
-  });
+  }, "Awin");
   const body = await readJson(response, "Awin");
   const offers = Array.isArray(body) ? body :
     (Array.isArray(body?.promotions) ? body.promotions : Array.isArray(body?.offers) ? body.offers : Array.isArray(body?.data) ? body.data : []);

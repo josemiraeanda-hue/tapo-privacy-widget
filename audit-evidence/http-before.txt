@@ -1,0 +1,111 @@
+✔ public health and concealed unauthenticated routes (51.802667ms)
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+    at JSON.parse (<anonymous>)
+    at parse (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/body-parser/lib/types/json.js:96:19)
+    at /workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/body-parser/lib/read.js:146:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+    at invokeCallback (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/raw-body/index.js:238:16)
+    at done (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:514:28)
+    at endReadableNT (node:internal/streams/readable:1783:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+✖ authentication runs before JSON parsing (21.242648ms)
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+    at JSON.parse (<anonymous>)
+    at parse (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/body-parser/lib/types/json.js:96:19)
+    at /workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/body-parser/lib/read.js:146:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+    at invokeCallback (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/raw-body/index.js:238:16)
+    at done (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/workspace/scratch/a006872361d6/vault-audit/api-vault/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:514:28)
+    at endReadableNT (node:internal/streams/readable:1783:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+✖ malformed authenticated JSON returns safe JSON (3.067335ms)
+✔ knowledge query, categories and item contracts (31.529152ms)
+✖ structured query parameter is rejected (6.590796ms)
+✔ invalid VIN never calls provider (4.711778ms)
+✖ VIN provider has timeout and normalizes lowercase VIN (12.201946ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 3
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 358.590485
+
+✖ failing tests:
+
+test at api-vault/tests/http.test.js:22:1
+✖ authentication runs before JSON parsing (21.242648ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 404
+  
+      at TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/http.test.js:24:9)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 404,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at api-vault/tests/http.test.js:26:1
+✖ malformed authenticated JSON returns safe JSON (3.067335ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /application\/json/. Input:
+  
+  'text/html; charset=utf-8'
+  
+      at TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/http.test.js:28:36)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'text/html; charset=utf-8',
+    expected: /application\/json/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at api-vault/tests/http.test.js:37:1
+✖ structured query parameter is rejected (6.590796ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 400
+  
+      at TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/http.test.js:37:63)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 400,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at api-vault/tests/http.test.js:39:1
+✖ VIN provider has timeout and normalizes lowercase VIN (12.201946ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(options.signal)
+  
+      at TestContext.<anonymous> (/workspace/scratch/a006872361d6/vault-audit/api-vault/tests/http.test.js:42:85)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

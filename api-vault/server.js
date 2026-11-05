@@ -9,7 +9,6 @@ const {compareShoppingSources}=require("./shopping-compare");
 const app=express();
 const VAULT_TOKEN=process.env.VAULT_TOKEN;
 const AUTO_DEV_API_KEY=process.env.AUTO_DEV_API_KEY;
-app.use(express.json({limit:"64kb"}));
 const KNOWLEDGE_PATH=path.join(__dirname,"knowledge.json");
 
 function loadKnowledge(){
@@ -40,6 +39,8 @@ app.use((req,res,next)=>{
   next();
 });
 
+app.use(express.json({limit:"64kb"}));
+
 app.get("/",(req,res)=>res.status(200).json({
   service:"JM API Vault",
   status:"ok",
@@ -47,6 +48,7 @@ app.get("/",(req,res)=>res.status(200).json({
 }));
 
 app.get("/knowledge/search",(req,res)=>{
+  if(req.query.q!==undefined && typeof req.query.q!=="string") return res.status(400).json({error:"q must be a string"});
   const q=String(req.query.q||"").trim();
   if(!q) return res.status(400).json({error:"Missing q"});
   const limit=Math.min(Math.max(Number(req.query.limit)||10,1),50);
@@ -86,11 +88,12 @@ app.get("/auto/registration/:plate",async(req,res)=>{
 
 app.get("/auto/vin/:vin",async(req,res)=>{
   if(!AUTO_DEV_API_KEY) return res.status(503).json({error:"AUTO_DEV_API_KEY not configured"});
-  const vin=req.params.vin;
+  const vin=req.params.vin.toUpperCase();
   if(!/^[A-HJ-NPR-Z0-9]{17}$/i.test(vin)) return res.status(400).json({error:"Invalid VIN"});
   try{
     const r=await fetch("https://api.auto.dev/vin/"+encodeURIComponent(vin),{
-      headers:{Authorization:"Bearer "+AUTO_DEV_API_KEY,Accept:"application/json"}
+      headers:{Authorization:"Bearer "+AUTO_DEV_API_KEY,Accept:"application/json"},
+      signal:AbortSignal.timeout(15000)
     });
     const body=await r.text();
     res.status(r.status).type("application/json").send(body);
@@ -170,5 +173,12 @@ app.get("/shopping/coupons",async(req,res)=>{
   }
 });
 
+app.use((err,req,res,next)=>{
+  if(res.headersSent) return next(err);
+  const status=err.type==="entity.too.large"?413:err.type==="entity.parse.failed"?400:500;
+  res.status(status).json({error:status===413?"Request body too large":status===400?"Invalid JSON body":"Internal server error"});
+});
+
 const port=process.env.PORT||10000;
-app.listen(port,"0.0.0.0",()=>console.log("JM API Vault running"));
+if(require.main===module) app.listen(port,"0.0.0.0",()=>console.log("JM API Vault running"));
+module.exports=app;

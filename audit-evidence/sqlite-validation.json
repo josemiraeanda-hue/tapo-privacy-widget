@@ -1,0 +1,15 @@
+{
+  "integrity": "ok",
+  "knowledge_entries": {
+    "count": 117,
+    "distinct_ids": 117,
+    "round_trip_equal": true,
+    "source_sha256": "54a44c38c3082ba703fd7c95d44665621615b716d0db6866ffb7d12d48bb13ad"
+  },
+  "research_sources": {
+    "count": 140,
+    "distinct_ids": 140,
+    "round_trip_equal": true,
+    "source_sha256": "36f3ff617e7b35834a4c9c232d941dc2f8039348c8d4889e42802bb887ea359d"
+  }
+}

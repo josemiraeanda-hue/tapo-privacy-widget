@@ -1,0 +1,43 @@
+FFFF..
+======================================================================
+FAIL: test_failed_second_catalog_rolls_back_first (test_database.ImportTests.test_failed_second_catalog_rolls_back_first)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a006872361d6/vault-audit/tools/local-db/test_database.py", line 40, in test_failed_second_catalog_rolls_back_first
+    self.assertEqual(self.snapshot(),before)
+AssertionError: Lists differ: [[('changed', None, None, 'Changed', '[]', No[504 chars]0')]] != [[('one', None, None, 'Revisão TecDoc', '["pe[444 chars]0')]]
+
+First differing element 0:
+[('changed', None, None, 'Changed', '[]', No[82 chars]00')]
+[('one', None, None, 'Revisão TecDoc', '["pe[114 chars]00')]
+
+Diff is 1083 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_missing_collection_does_not_erase_data (test_database.ImportTests.test_missing_collection_does_not_erase_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a006872361d6/vault-audit/tools/local-db/test_database.py", line 44, in test_missing_collection_does_not_erase_data
+    self.assertNotEqual(self.run_import().returncode,0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_missing_sources_does_not_erase_data (test_database.ImportTests.test_missing_sources_does_not_erase_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a006872361d6/vault-audit/tools/local-db/test_database.py", line 49, in test_missing_sources_does_not_erase_data
+    self.assertNotEqual(self.run_import().returncode,0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_null_id_is_rejected (test_database.ImportTests.test_null_id_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/a006872361d6/vault-audit/tools/local-db/test_database.py", line 54, in test_null_id_is_rejected
+    self.assertNotEqual(self.run_import().returncode,0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.723s
+
+FAILED (failures=4)

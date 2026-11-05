@@ -1,0 +1,184 @@
+[
+  {
+    "url": "https://jm-api-vault.onrender.com/health",
+    "auth": "none",
+    "status": 200,
+    "body": "{\"status\":\"ok\"}",
+    "checked_at": "2026-11-05T14:56:46.839655+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:46.883040+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:47.068176+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/knowledge/search?q=TecDoc",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:47.084036+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/knowledge/search?q=TecDoc",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:52.978603+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/knowledge/categories",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:52.980616+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/knowledge/categories",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:52.962935+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/knowledge/item/auto-dev-vin",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:53.049897+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/knowledge/item/auto-dev-vin",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:58.955358+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/auto/vin/INVALID",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:58.889686+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/auto/vin/INVALID",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:58.928332+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/shopping/status",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:56:58.928026+00:00"
+  },
+  {
+    "url": "https://jm-api-vault.onrender.com/shopping/status",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:04.856993+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/health",
+    "auth": "none",
+    "status": 200,
+    "body": "{\"status\":\"ok\"}",
+    "checked_at": "2026-11-05T14:57:01.923113+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:01.794975+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:01.741070+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/knowledge/search?q=TecDoc",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:05.249287+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/knowledge/search?q=TecDoc",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:05.247200+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/knowledge/categories",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:05.242787+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/knowledge/categories",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:05.250394+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/knowledge/item/auto-dev-vin",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:11.269123+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/knowledge/item/auto-dev-vin",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:11.277595+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/auto/vin/INVALID",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:11.212976+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/auto/vin/INVALID",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:11.261959+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/shopping/status",
+    "auth": "none",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:17.378855+00:00"
+  },
+  {
+    "url": "https://jm-api-vault-shopping-staging.onrender.com/shopping/status",
+    "auth": "invalid",
+    "status": 404,
+    "body": "",
+    "checked_at": "2026-11-05T14:57:17.383467+00:00"
+  }
+]

@@ -31,6 +31,11 @@ jobs:
           node --check telepecas-provider.js
           node --check landed-cost.js
           node --check shopping-compare.js
+      - name: Install API dependencies
+        working-directory: api-vault
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Run SQLite regression tests
+        run: python3 -m unittest discover -s tools/local-db -p "test_*.py"
       - name: Run offline tests
         working-directory: api-vault
         run: node --test tests/*.test.js

@@ -66,5 +66,14 @@ test("provider errors are surfaced without exposing the request URL", async () =
   await assert.rejects(searchProducts({
     q: "filter", apiKey: "secret-test",
     fetchImpl: async () => ({ ok: false, status: 401, json: async () => ({ error: "Invalid API key" }) })
-  }), /SerpApi request failed: Invalid API key/);
+  }), /SerpApi request failed \(HTTP 401\)/);
+});
+test('provider transport failures never expose credentials in URLs', async () => {
+  await assert.rejects(searchProducts({q:'transport-redaction-test',apiKey:'fixture-sensitive',fetchImpl:async url=>{throw new Error('Network '+url);}}),e=>!e.message.includes('fixture-sensitive')&&!e.message.includes('api_key='));
+});
+test('provider error bodies never expose echoed credentials', async () => {
+  await assert.rejects(searchProducts({q:'body-redaction-test',apiKey:'fixture-sensitive',fetchImpl:async()=>({ok:false,status:401,json:async()=>({error:'key=fixture-sensitive'})})}),e=>!e.message.includes('fixture-sensitive'));
+});
+test('provider error in a successful HTTP response is not an empty success', async () => {
+  await assert.rejects(searchProducts({q:'body-error-test',apiKey:'fixture-sensitive',fetchImpl:async()=>({ok:true,status:200,json:async()=>({error:'Quota exhausted'})})}));
 });
